@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URIPEL | Recolector de Muestras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Paleta Calma Institucional con acento personalizado */
+        :root {
+            --bg-color: #F0F4F8; /* Gris azulado muy suave */
+            --text-color: #334155; /* Gris pizarra oscuro */
+            --accent-color: #25336b; /* Azul marino institucional */
+            --white: #FFFFFF;
+            --border-color: #CBD5E1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header con Layout alineado */
+        header {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .logo img {
+            height: 40px; 
+            width: auto;
+            display: block;
+        }
+
+        /* Botón estilo Header */
+        .btn-header {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+        .btn-header:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section Acortada */
+        /* --- NUEVO DISEÑO HERO (PC: Degradado / Celular: Tarjeta) --- */
+        .hero-new {
+            position: relative;
+            background-color: var(--white);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 700px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 100%;
+            /* El degradado se queda acá, así aplica a todas las fotos que pasen por debajo */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+            mask-image: linear-gradient(to right, transparent 0%, black 40%);
+            z-index: 1;
+            background-color: var(--white);
+        }
+
+        /* Estilo para cada foto individual */
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center left;
+            opacity: 0; /* Arrancan invisibles */
+            transition: opacity 1.5s ease-in-out; /* Transición súper suave (fade) de 1.5 segundos */
+        }
+
+        /* La foto que esté activa se vuelve 100% visible */
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-card {
+            max-width: 500px; /* Controla el ancho del texto en la computadora */
+            padding: 40px 0;
+        }
+
+        .hero-card h1 {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-card p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 60px 0;
+        }
+        .section.alt {
+            background-color: var(--bg-color);
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+        }
+
+        /* Beneficios Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        /* Contenedor que agrupa la tarjeta y la foto circular */
+        .benefit-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px; /* Espacio entre la tarjeta y la foto */
+        }
+
+        .benefit-item {
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            flex-grow: 1; /* Obliga a que las 3 tarjetas tengan la misma altura */
+        }
+        .benefit-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+        .benefit-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Estilo para convertir las fotos en círculos perfectos */
+        .benefit-img {
+            width: 240px; /* Ancho de la foto */
+            height: 240px; /* Alto de la foto (debe ser igual al ancho) */
+            border-radius: 50%; /* Esto es lo que la hace redonda */
+            object-fit: cover; /* Evita que la foto se estire o se deforme */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombrita suave */
+        }
+
+        /* Agregamos este nuevo bloque que le dice qué hacer cuando el mouse pasa por encima */
+        .benefit-item:hover {
+            transform: scale(1.03); /* Agranda la tarjeta un 3% */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06); /* Sombra más pronunciada para resaltar */
+        }
+        .benefit-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Modo de Uso con Video */
+        .modo-uso-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .step-number {
+            background-color: var(--accent-color);
+            color: var(--white);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .video-container video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* Tabla de Especificaciones */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--bg-color);
+            font-weight: 600;
+            width: 30%;
+            color: var(--text-color);
+        }
+        tr:last-child th, tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer Oscuro */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+        footer h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+        footer a { color: #60A5FA; text-decoration: none; font-weight: 600; }
+        footer a:hover { text-decoration: underline; }
+        
+        .contact-links {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .pipe {
+            color: #9CA3AF;
+            font-weight: 300;
+        }
+
+        .legal {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #9CA3AF;
+        }
+
+        /* Ajustes específicos para celulares */
+        @media (max-width: 600px) {
+            .logo img { 
+                height: 25px; 
+            }
+
+            .btn-header {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            table, thead, tbody, th, td, tr { display: block; }
+            th { width: auto; background-color: transparent; padding-bottom: 5px; color: var(--accent-color); border-bottom: none;}
+            td { padding-top: 0; margin-bottom: 15px; }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pipe {
+                display: none; 
+            }
+        }
+        @media (max-width: 850px) {
+            /* Transformamos el Hero en columna para celulares */
+            .hero-new {
+                flex-direction: column;
+                min-height: auto;
+                background-color: var(--bg-color); /* Fondo gris claro detrás de la tarjeta */
+                padding-bottom: 50px;
+            }
+            .hero-bg {
+                position: relative;
+                width: 100%;
+                height: 320px; /* Altura de la foto en el celular */
+                -webkit-mask-image: none; /* Le sacamos el degradado */
+                mask-image: none;
+            }
+            .hero-content {
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .hero-card {
+                width: 90%;
+                max-width: none;
+                margin-top: -60px; /* Este número negativo la sube arriba de la foto */
+                background: var(--white);
+                padding: 30px 20px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra elegante */
+                text-align: center;
+            } 
+            .hero-slide {
+                background-position: center center !important; /* Mágicamente centra la foto */
+            }
+            .modo-uso-layout { grid-template-columns: 1fr; }
+            .video-container { order: -1; margin-bottom: 20px; }
+            .hero-card h1 { font-size: 1.8rem; } /* <-- Acá está la corrección */
+            
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="LOGOS/URIPEL-AZUL.jpg" alt="Logo URIPEL">
+            </div>
+            <a href="#contacto" class="btn-header">Contacto</a>
+        </div>
+    </header>
+
+    <!-- ACÁ HABÍA DESAPARECIDO TODO ESTO: VUELVE EL HERO -->
+    <section class="hero-new">
+        <div class="hero-bg">
+            <!-- Poné acá las rutas de tus fotos. La primera lleva la clase "active" -->
+            <div class="hero-slide active" style="background-image: url('PHOTOS/hero 1.png');"></div>
+            <div class="hero-slide" style="background-image: url('PHOTOS/hero 2.png');"></div>
+            <div class="hero-slide" style="background-image: url('PHOTOS/hero 3.png');"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-card">
+                <h1>Mayor comodidad para tus cuidados</h1>
+                <p>URIPEL es el recipiente recolector adaptado a inodoros diseñado para garantizar una higiene óptima y confortable en entornos hospitalarios y domiciliarios.</p>
+                <p>Su implementación busca dar un salto en la calidad de los cuidados personales para todos. Mediante su uso sencillo, bajo costo y fácil limpieza, garantizamos un nivel superior de higiene.</p>
+                <p>Porque sabemos que el bienestar requiere soluciones prácticas, nuestro diseño ergonómico busca devolverle la tranquilidad, la dignidad y la autonomía a quienes más lo necesitan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="beneficios">
+        <div class="container">
+            <h2>¿Por qué elegir URIPEL?</h2>
+            <div class="benefits-grid">
+                
+                <!-- Columna 1 -->
+                <div class="benefit-column">
+                    <div class="benefit-item">
+                        <h3>Higiene Total</h3>
+                        <p>Permite la recolección y medición de muestras fisiológicas de forma segura y sin necesidad de insumos adicionales.</p>
+                    </div>
+                    <!-- Cambiá "foto-1.jpg" por el nombre de tu foto -->
+                    <img src="PHOTOS/bubble 1.png" alt="Higiene Total" class="benefit-img">
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="benefit-column">
+                    <div class="benefit-item">
+                        <h3>Diseño Universal</h3>
+                        <p>Se ajusta perfectamente a cualquier inodoro estándar. Apto para el uso de adultos y niños.</p>
+                    </div>
+                    <!-- Cambiá "foto-2.jpg" por el nombre de tu foto -->
+                    <img src="PHOTOS/bubble 2.png" alt="Diseño Universal" class="benefit-img">
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="benefit-column">
+                    <div class="benefit-item">
+                        <h3>Reutilizable</h3>
+                        <p>Fabricado para durar, permitiendo su reutilización con lavados convencionales.</p>
+                    </div>
+                    <!-- Cambiá "foto-3.jpg" por el nombre de tu foto -->
+                    <img src="PHOTOS/bubble 3.png" alt="Reutilizable" class="benefit-img">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="modo-de-uso">
+        <div class="container">
+            <h2>Modo de Uso</h2>
+            <div class="modo-uso-layout">
+                <div class="steps">
+                    <div class="step"><div class="step-number">1</div><div>Levante la tapa y la tabla del inodoro.</div></div>
+                    <div class="step"><div class="step-number">2</div><div>Apoye el adaptador URIPEL en el frente e interior.</div></div>
+                    <div class="step"><div class="step-number">3</div><div>Baje la tabla y utilice el inodoro normalmente.</div></div>
+                    <div class="step"><div class="step-number">4</div><div>Retire el adaptador con la muestra recolectada.</div></div>
+                    <div class="step"><div class="step-number">5</div><div>Lave con agua y jabón para su próximo uso.</div></div>
+                </div>
+                <div class="video-container">
+                    <video controls poster="portada-video.jpg">
+                        <source src="tu-video-uripel.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="contacto">
+        <div class="container">
+            <h3>Contacto Comercial</h3>
+            <p>Para consultas comerciales o distribución, comunícate con nosotros:</p>
+            
+            <div class="contact-links">
+                <span>✉️ <a href="mailto:uripelcontacto@gmail.com">uripelcontacto@gmail.com</a></span>
+                <span class="pipe">|</span>
+                <span>📞 <a href="tel:+5401152628514">+54 011 5262-8514</a></span>
+            </div>
+            
+            <div class="legal">
+                <p>Fabricado por URIPEL | Marca registrada Nro 99974</p>
+            </div>
+        </div>
+    </footer>
+<!-- SCRIPT DEL FADE DEL HERO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+
+            // Se ejecuta cada 4000 milisegundos (4 segundos)
+            setInterval(() => {
+                // Le sacamos la clase 'active' a la foto actual para que se desvanezca
+                slides[currentSlide].classList.remove('active');
+                
+                // Calculamos cuál es la siguiente foto (y si es la última, vuelve a la primera)
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Le agregamos 'active' a la foto nueva para que aparezca
+                slides[currentSlide].classList.add('active');
+            }, 4000); 
+        });
+    </script>
+</body>
+</html>

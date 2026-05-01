@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URIPEL | Recolector de Muestras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Paleta de Colores: Accesible y Domiciliario */
+        :root {
+            --bg-color: #F8F9FA; /* Gris perla levísimo / Blanco tiza */
+            --text-color: #1E293B; /* Azul oscuro casi negro para textos */
+            --accent-color: #2563EB; /* Azul cobalto brillante para llamados a la acción */
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
+        /* Reseteo básico y tipografía */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #1D4ED8;
+        }
+
+        /* Secciones Generales */
+        .section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        .section.alt {
+            background-color: var(--bg-color);
+        }
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        /* Beneficios Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .benefit-item {
+            padding: 30px 20px;
+            background: var(--bg-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .benefit-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Modo de Uso */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+        }
+        .step-number {
+            background-color: var(--accent-color);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-right: 25px;
+        }
+
+        /* Tabla de Especificaciones */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        th, td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--bg-color);
+            font-weight: 600;
+            width: 30%;
+        }
+        tr:last-child th, tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+        footer h3 {
+            margin-top: 0;
+        }
+        footer a {
+            color: #60A5FA; /* Un azul más claro para que resalte sobre el fondo oscuro */
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .legal {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #94A3B8;
+        }
+
+        /* Responsive extra */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .step { flex-direction: column; text-align: center; }
+            .step-number { margin: 0 0 15px 0; }
+            table, thead, tbody, th, td, tr { display: block; }
+            th { width: auto; background-color: transparent; padding-bottom: 5px; color: var(--accent-color); border-bottom: none;}
+            td { padding-top: 0; margin-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">URIPEL</h1>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Higiene y Comodidad en la Recolección de Muestras</h1>
+            <p>URIPEL es un recipiente recolector de orina y heces adaptado a inodoros, diseñado tanto para uso hospitalario como domiciliario.</p>
+            <a href="#contacto" class="btn">Consultar ahora</a>
+        </div>
+    </section>
+
+    <section class="section" id="beneficios">
+        <div class="container">
+            <h2>¿Por qué elegir URIPEL?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Higiene Total</h3>
+                    <p>Permite la recolección y medición de muestras fisiológicas de forma segura y sin necesidad de insumos adicionales.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Diseño Universal</h3>
+                    <p>Se ajusta perfectamente a cualquier inodoro estándar y es apto para el uso de adultos y niños.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Reutilizable</h3>
+                    <p>Fabricado para durar. Es sumamente fácil de limpiar, requiriendo únicamente lavado con agua y jabón.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="modo-de-uso">
+        <div class="container">
+            <h2>Modo de Uso</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Levante la tapa y la tabla del inodoro.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Apoye el adaptador URIPEL en el frente y dentro del inodoro.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>Baje la tabla y utilice el inodoro de forma habitual.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>Levante la tabla y retire el adaptador con la muestra recolectada.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div>Lave con abundante agua y jabón para reutilizar.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="especificaciones">
+        <div class="container">
+            <h2>Especificaciones Técnicas</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Material</th>
+                        <td>ABS (Acrilonitrilo Butadieno Estireno) de alta resistencia</td>
+                    </tr>
+                    <tr>
+                        <th>Medidas</th>
+                        <td>35 cm x 21,5 cm x 9,5 cm</td>
+                    </tr>
+                    <tr>
+                        <th>Diseño</th>
+                        <td>Ranura vertedora integrada para facilitar la manipulación</td>
+                    </tr>
+                    <tr>
+                        <th>Esterilidad</th>
+                        <td>Producto NO ESTÉRIL</td>
+                    </tr>
+                    <tr>
+                        <th>Presentación</th>
+                        <td>Unidad individual en bolsa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <h3>Contacto Comercial</h3>
+            <p>Para consultas comerciales o distribución, comunícate con nosotros:</p>
+            <p style="font-size: 1.2rem; margin-top: 20px;">
+                ✉️ <a href="mailto:uripelcontacto@gmail.com">uripelcontacto@gmail.com</a><br><br>
+                📞 <a href="tel:+5401152628514">+54 011 5262-8514</a>
+            </p>
+            
+            <div class="legal">
+                <p>Fabricado por URIPEL | Marca registrada Nro 99974</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
