@@ -253,15 +253,31 @@
             margin-right: 15px;
         }
 
-        .video-container {
+        /* --- NUEVO CARRUSEL MODO DE USO --- */
+        .carousel-uso-container {
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/9; /* Mantiene la proporción rectangular tipo video */
             background-color: var(--border-color);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
         }
-        .video-container video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .carousel-step {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Evita que las fotos se deformen */
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Transición suave de 1 segundo */
+        }
+
+        .carousel-step.active {
+            opacity: 1;
+        }
 
         /* Tabla de Especificaciones */
         table {
@@ -381,7 +397,7 @@
                 background-position: center center !important; /* Mágicamente centra la foto */
             }
             .modo-uso-layout { grid-template-columns: 1fr; }
-            .video-container { order: -1; margin-bottom: 20px; }
+            .carousel-uso-container { order: -1; margin-bottom: 20px; }
             .hero-card h1 { font-size: 1.8rem; } /* <-- Acá está la corrección */
             
         }
@@ -461,17 +477,18 @@
             <h2>Modo de Uso</h2>
             <div class="modo-uso-layout">
                 <div class="steps">
-                    <div class="step"><div class="step-number">1</div><div>Levante la tapa y la tabla del inodoro.</div></div>
-                    <div class="step"><div class="step-number">2</div><div>Apoye el adaptador URIPEL en el frente e interior.</div></div>
-                    <div class="step"><div class="step-number">3</div><div>Baje la tabla y utilice el inodoro normalmente.</div></div>
-                    <div class="step"><div class="step-number">4</div><div>Retire el adaptador con la muestra recolectada.</div></div>
-                    <div class="step"><div class="step-number">5</div><div>Lave con agua y jabón para su próximo uso.</div></div>
+                    <div class="step"><div class="step-number">1</div><div>Levante la tapa y la tabla del inodoro y apoye el adaptador URIPEL en el frente.</div></div>
+                    <div class="step"><div class="step-number">2</div><div>Baje la tabla y utilice el inodoro normalmente.</div></div>
+                    <div class="step"><div class="step-number">3</div><div>Retire su adaptador URIPEL con la muestra recolectada. Descarte el liquido excedente.</div></div>
+                    <div class="step"><div class="step-number">4</div><div>Utilice el medidor interno para volcar la cantidad deseada.</div></div>
+                    <div class="step"><div class="step-number">5</div><div>Lave el adaptador URIPEL para su próximo uso.</div></div>
                 </div>
-                <div class="video-container">
-                    <video controls poster="portada-video.jpg">
-                        <source src="tu-video-uripel.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de videos.
-                    </video>
+                <div class="carousel-uso-container">
+                    <img src="PHOTOS/Step 1.png" alt="Paso 1" class="carousel-step active">
+                    <img src="PHOTOS/Step 2.png" alt="Paso 2" class="carousel-step">
+                    <img src="PHOTOS/Step 3.png" alt="Paso 3" class="carousel-step">
+                    <img src="PHOTOS/Step 4.png" alt="Paso 4" class="carousel-step">
+                    <img src="PHOTOS/Step 5.png" alt="Paso 5" class="carousel-step">
                 </div>
             </div>
         </div>
@@ -486,31 +503,40 @@
             <div class="contact-links">
                 <span>✉️ <a href="mailto:uripelcontacto@gmail.com">uripelcontacto@gmail.com</a></span>
                 <span class="pipe">|</span>
-                <span>📞 <a href="tel:+5401152628514">+54 011 5262-8514</a></span>
+                <span>📞 <a href="https://wa.me/+5401152628514">+54 011 5262-8514</a></span>
             </div>
             
             <div class="legal">
-                <p>Fabricado por URIPEL | Marca registrada Nro 99974</p>
+                <p>Fabricado por URIPEL | Marca registrada Nro 99.974</p>
             </div>
         </div>
     </footer>
 <!-- SCRIPT DEL FADE DEL HERO -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.hero-slide');
-            let currentSlide = 0;
+            
+            /* --- 1. SCRIPT DEL FADE DEL HERO --- */
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let currentHero = 0;
+            if(heroSlides.length > 0) {
+                setInterval(() => {
+                    heroSlides[currentHero].classList.remove('active');
+                    currentHero = (currentHero + 1) % heroSlides.length;
+                    heroSlides[currentHero].classList.add('active');
+                }, 4000); 
+            }
 
-            // Se ejecuta cada 4000 milisegundos (4 segundos)
-            setInterval(() => {
-                // Le sacamos la clase 'active' a la foto actual para que se desvanezca
-                slides[currentSlide].classList.remove('active');
-                
-                // Calculamos cuál es la siguiente foto (y si es la última, vuelve a la primera)
-                currentSlide = (currentSlide + 1) % slides.length;
-                
-                // Le agregamos 'active' a la foto nueva para que aparezca
-                slides[currentSlide].classList.add('active');
-            }, 4000); 
+            /* --- 2. SCRIPT PARA CARRUSEL MODO DE USO --- */
+            const stepSlides = document.querySelectorAll('.carousel-step');
+            let currentStep = 0;
+            if(stepSlides.length > 0) {
+                setInterval(() => {
+                    stepSlides[currentStep].classList.remove('active');
+                    currentStep = (currentStep + 1) % stepSlides.length;
+                    stepSlides[currentStep].classList.add('active');
+                }, 3000); 
+            }
+            
         });
     </script>
 </body>
