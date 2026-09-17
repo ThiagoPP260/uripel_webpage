@@ -1,539 +1,831 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URIPEL | Recolector de Muestras</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Paleta Calma Institucional con acento personalizado */
-        :root {
-            --bg-color: #F0F4F8; /* Gris azulado muy suave */
-            --text-color: #334155; /* Gris pizarra oscuro */
-            --accent-color: #25336b; /* Azul marino institucional */
-            --white: #FFFFFF;
-            --border-color: #CBD5E1;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URIPEL | Recolector de muestras para inodoro, reutilizable y con medidor</title>
+<meta name="description" content="URIPEL es un recolector de orina y materia fecal que se apoya en cualquier inodoro estándar. Reutilizable, con medidor graduado integrado y sin insumos descartables. Para instituciones de salud y cuidado domiciliario.">
+<link rel="canonical" href="https://www.uripel.com/">
+<meta name="theme-color" content="#25336b">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+<!-- Open Graph / redes y WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="URIPEL">
+<meta property="og:url" content="https://www.uripel.com/">
+<meta property="og:title" content="URIPEL | Recolector de muestras para inodoro">
+<meta property="og:description" content="Recolecta y mide orina o materia fecal en cualquier inodoro estándar. Reutilizable, sin insumos descartables.">
+<meta property="og:image" content="https://www.uripel.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+<link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
-        /* Header con Layout alineado */
-        header {
-            background-color: var(--white);
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-1.webp">
 
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
+<style>
+/* ============ Sistema de diseño ============ */
+:root{
+  --navy:#25336b;
+  --navy-dark:#1a2450;
+  --navy-soft:#eaeef7;
+  --ink:#151d2e;
+  --body:#4d576c;
+  --muted:#727c92;
+  --line:#e0e5f0;
+  --white:#fff;
+  --soft:#f5f7fc;
+  --accent:#0f8fa6;
 
-        .logo img {
-            height: 40px; 
-            width: auto;
-            display: block;
-        }
+  --r-sm:10px; --r-md:14px; --r-lg:20px;
+  --sh-1:0 1px 2px rgba(21,29,46,.05), 0 1px 3px rgba(21,29,46,.04);
+  --sh-2:0 4px 12px rgba(21,29,46,.07), 0 12px 32px rgba(21,29,46,.06);
+  --sh-3:0 18px 48px rgba(21,29,46,.13);
+  --pad:clamp(20px,5vw,32px);
+  --sec:clamp(56px,8vw,104px);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+body{
+  margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--body);background:var(--white);line-height:1.65;font-size:17px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{color:var(--ink);line-height:1.18;letter-spacing:-.022em;margin:0;font-weight:700}
+h1{font-size:clamp(2.05rem,4.1vw,2.95rem)}
+h2{font-size:clamp(1.6rem,3.1vw,2.3rem)}
+h3{font-size:1.16rem;letter-spacing:-.012em}
+p{margin:0}
+a{color:var(--navy)}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-inline:var(--pad)}
+.sec{padding-block:var(--sec)}
+.sec--soft{background:var(--soft);border-block:1px solid var(--line)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+.lede{font-size:clamp(1.02rem,1.6vw,1.14rem);color:var(--body);max-width:62ch}
+.sec-head{max-width:66ch;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head p{margin-top:16px}
+.center{text-align:center;margin-inline:auto}
 
-        /* Botón estilo Header */
-        .btn-header {
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.3s ease;
-        }
-        .btn-header:hover {
-            opacity: 0.9;
-        }
+/* ============ Botones ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font:inherit;font-weight:600;font-size:.97rem;line-height:1;
+  padding:15px 26px;border-radius:var(--r-sm);border:1.5px solid transparent;
+  text-decoration:none;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap;
+}
+.btn--primary{background:var(--navy);color:var(--white);box-shadow:var(--sh-1)}
+.btn--primary:hover{background:var(--navy-dark);box-shadow:var(--sh-2);transform:translateY(-1px)}
+.btn--ghost{background:var(--white);color:var(--navy);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--navy);background:var(--navy-soft)}
+.btn--light{background:var(--white);color:var(--navy)}
+.btn--light:hover{background:var(--navy-soft);transform:translateY(-1px)}
+.btn--sm{padding:11px 19px;font-size:.9rem}
+:where(a,button,summary,input,select,textarea):focus-visible{
+  outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px;
+}
 
-        /* Hero Section Acortada */
-        /* --- NUEVO DISEÑO HERO (PC: Degradado / Celular: Tarjeta) --- */
-        .hero-new {
-            position: relative;
-            background-color: var(--white);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            min-height: 700px;
-        }
+/* ============ Header ============ */
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:12px 20px;z-index:200;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.hdr.is-stuck{border-bottom-color:var(--line);box-shadow:0 1px 16px rgba(21,29,46,.05)}
+.hdr__in{display:flex;align-items:center;gap:22px;height:72px}
+.hdr__logo img{height:27px;width:auto}
+.nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav a{
+  color:var(--body);text-decoration:none;font-size:.93rem;font-weight:500;
+  padding:9px 13px;border-radius:8px;transition:color .18s,background .18s;
+}
+.nav a:hover{color:var(--navy);background:var(--navy-soft)}
+.nav .btn{display:none} /* el CTA del menú solo aparece en mobile */
+.hdr .btn{margin-left:10px}
+.burger{display:none;margin-left:auto;background:none;border:1.5px solid var(--line);border-radius:9px;padding:9px;cursor:pointer;color:var(--navy)}
+@media (max-width:900px){
+  .nav{
+    position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:var(--white);border-bottom:1px solid var(--line);box-shadow:var(--sh-2);
+    padding:10px var(--pad) 22px;gap:2px;margin-left:0;display:none;
+  }
+  .nav.is-open{display:flex}
+  .nav a{padding:13px 4px;font-size:1rem;border-bottom:1px solid var(--line)}
+  .nav a:last-of-type{border-bottom:none}
+  .nav .btn{display:inline-flex;margin:12px 0 0;width:100%;padding:15px}
+  .burger{display:flex}
+  .hdr__cta-desktop{display:none}
+}
 
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 65%;
-            height: 100%;
-            /* El degradado se queda acá, así aplica a todas las fotos que pasen por debajo */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
-            mask-image: linear-gradient(to right, transparent 0%, black 40%);
-            z-index: 1;
-            background-color: var(--white);
-        }
+/* ============ Hero ============ */
+.hero{padding-block:clamp(52px,7vw,92px) clamp(52px,7vw,92px);overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(36px,5vw,64px);align-items:center}
+.hero h1{margin-bottom:22px}
+.hero .lede{font-size:clamp(1.04rem,1.7vw,1.19rem)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);list-style:none;padding-inline-start:0}
+.facts li{display:flex;align-items:center;gap:9px;font-size:.88rem;color:var(--muted);font-weight:500}
+.facts svg{flex:none;color:var(--accent)}
 
-        /* Estilo para cada foto individual */
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center left;
-            opacity: 0; /* Arrancan invisibles */
-            transition: opacity 1.5s ease-in-out; /* Transición súper suave (fade) de 1.5 segundos */
-        }
+/* Carrusel hero */
+.shot{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);background:var(--soft);aspect-ratio:4/3}
+.shot__track{position:absolute;inset:0}
+.shot__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease);pointer-events:none}
+.shot__slide.is-on{opacity:1;pointer-events:auto}
+.shot__slide img{width:100%;height:100%;object-fit:cover}
+.shot__cap{
+  position:absolute;left:14px;bottom:14px;z-index:3;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(8px);
+  color:var(--navy);font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:99px;
+  box-shadow:var(--sh-1);
+}
+.dots{position:absolute;right:14px;bottom:14px;z-index:3;display:flex;gap:7px;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);padding:8px 11px;border-radius:99px;box-shadow:var(--sh-1)}
+.dots button{width:8px;height:8px;padding:0;border:none;border-radius:99px;background:#c3cadb;cursor:pointer;transition:all .25s var(--ease)}
+.dots button[aria-current="true"]{background:var(--navy);width:22px}
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr;gap:34px}
+  .shot{aspect-ratio:16/11}
+  .facts{gap:10px 18px}
+}
 
-        /* La foto que esté activa se vuelve 100% visible */
-        .hero-slide.active {
-            opacity: 1;
-        }
+/* ============ Público ============ */
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}
+.who__item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:28px 26px 30px;box-shadow:var(--sh-1)}
+.who__ico{width:42px;height:42px;display:grid;place-items:center;border-radius:11px;background:var(--navy-soft);color:var(--navy);margin-bottom:18px}
+.who__item h3{margin-bottom:9px}
+.who__item p{font-size:.95rem}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+/* ============ Beneficios ============ */
+.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:24px}
+.bcard{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.bcard:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.bcard img{aspect-ratio:4/3;height:auto;object-fit:cover;width:100%}
+.bcard__body{padding:24px 24px 28px}
+.bcard h3{margin-bottom:10px}
+.bcard p{font-size:.95rem}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px 32px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line);list-style:none;padding-inline-start:0}
+.mini li{display:flex;gap:12px;font-size:.94rem}
+.mini svg{flex:none;color:var(--accent);margin-top:3px}
+.mini b{color:var(--ink);font-weight:600}
 
-        .hero-card {
-            max-width: 500px; /* Controla el ancho del texto en la computadora */
-            padding: 40px 0;
-        }
+/* ============ Modo de uso ============ */
+.uso{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,54px);align-items:start}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.step{
+  display:flex;gap:15px;align-items:flex-start;width:100%;text-align:left;
+  background:var(--white);border:1.5px solid var(--line);border-radius:var(--r-sm);
+  padding:15px 17px;font:inherit;font-size:.95rem;color:var(--body);cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.step:hover{border-color:#c2cade}
+.step[aria-current="true"]{border-color:var(--navy);background:var(--navy-soft);color:var(--ink);box-shadow:var(--sh-1)}
+.step__n{
+  flex:none;width:29px;height:29px;display:grid;place-items:center;border-radius:99px;
+  background:var(--white);border:1.5px solid var(--line);color:var(--muted);
+  font-weight:700;font-size:.87rem;transition:all .25s var(--ease);
+}
+.step[aria-current="true"] .step__n{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.viewer{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);background:var(--soft);aspect-ratio:16/9}
+.viewer__slide{position:absolute;inset:0;opacity:0;transition:opacity .55s var(--ease)}
+.viewer__slide.is-on{opacity:1}
+.viewer__slide img{width:100%;height:100%;object-fit:cover}
+.viewer__bar{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:12px;
+  padding:12px 14px;background:linear-gradient(to top,rgba(10,16,32,.62),transparent);
+}
+.viewer__bar .nav-b{
+  width:36px;height:36px;display:grid;place-items:center;flex:none;border:none;border-radius:99px;
+  background:rgba(255,255,255,.94);color:var(--navy);cursor:pointer;transition:background .2s;
+}
+.viewer__bar .nav-b:hover{background:#fff}
+.viewer__prog{flex:1;display:flex;gap:5px}
+.viewer__prog span{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.42)}
+.viewer__prog span.is-on{background:#fff}
+@media (max-width:860px){
+  .uso{grid-template-columns:1fr}
+  .viewer{order:-1}
+}
 
-        .hero-card h1 {
-            font-size: 2.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
+/* ============ Especificaciones ============ */
+.specs{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,4vw,46px);align-items:start}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1)}
+th,td{padding:17px 22px;text-align:left;border-bottom:1px solid var(--line);font-size:.96rem}
+th{width:38%;font-weight:600;color:var(--ink);background:var(--soft)}
+tr:last-child th,tr:last-child td{border-bottom:none}
+.note{margin-top:16px;font-size:.86rem;color:var(--muted)}
+.aside{background:var(--navy);color:#fff;border-radius:var(--r-md);padding:30px 28px;box-shadow:var(--sh-2)}
+.aside h3{color:#fff;margin-bottom:12px}
+.aside p{color:#c6cee6;font-size:.95rem;margin-bottom:22px}
+@media (max-width:820px){
+  .specs{grid-template-columns:1fr}
+  table,tbody,tr,th,td{display:block;width:100%}
+  table{border-radius:var(--r-md);padding:6px 0}
+  tr{border-bottom:1px solid var(--line);padding:14px 20px}
+  tr:last-child{border-bottom:none}
+  th{background:none;padding:0 0 3px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border:none}
+  td{padding:0;border:none}
+}
 
-        .hero-card p {
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
+/* ============ FAQ ============ */
+.faq{max-width:820px;margin-inline:auto}
+details{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:10px;box-shadow:var(--sh-1);overflow:hidden}
+details[open]{border-color:#c9d1e4}
+summary{
+  padding:19px 54px 19px 22px;cursor:pointer;font-weight:600;color:var(--ink);
+  font-size:1rem;position:relative;list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:22px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);
+  transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease);
+}
+details[open] summary::after{transform:translateY(-25%) rotate(225deg)}
+details .a{padding:0 22px 22px;font-size:.96rem;max-width:68ch}
 
-        /* Secciones */
-        .section {
-            padding: 60px 0;
-        }
-        .section.alt {
-            background-color: var(--bg-color);
-        }
-        h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            color: var(--accent-color);
-        }
+/* ============ CTA + footer ============ */
+.cta{background:var(--navy);color:#fff;text-align:center}
+.cta h2{color:#fff;margin-bottom:16px}
+.cta p{color:#c6cee6;max-width:56ch;margin:0 auto 32px}
+.ft{background:var(--navy-dark);color:#aeb8d4;padding-block:56px 32px;font-size:.92rem}
+.ft__top{display:flex;flex-wrap:wrap;gap:34px;justify-content:space-between;align-items:flex-start;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ft img{height:24px;width:auto;margin-bottom:14px;opacity:.95}
+.ft p{max-width:42ch;font-size:.9rem;line-height:1.6}
+.ft__links{display:flex;flex-direction:column;gap:10px}
+.ft a{color:#fff;text-decoration:none;font-weight:500}
+.ft a:hover{text-decoration:underline}
+.ft__legal{padding-top:26px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.82rem;color:#8b96b6}
 
-        /* Beneficios Grid */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
+/* ============ Modal de contacto ============ */
+dialog{
+  padding:0;border:none;border-radius:var(--r-lg);max-width:600px;width:calc(100% - 32px);
+  max-height:min(90vh,820px);overflow:auto;overscroll-behavior:contain;
+  box-shadow:0 28px 80px rgba(10,16,32,.42);color:var(--body);
+}
+dialog::backdrop{background:rgba(15,21,38,.55);backdrop-filter:blur(3px)}
+.modal__hd{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:24px 28px 14px;
+  position:sticky;top:0;background:var(--white);z-index:2;border-bottom:1px solid var(--line);
+}
+.modal__hd h2{font-size:1.42rem}
+.modal__hd p{font-size:.93rem;margin-top:8px;color:var(--muted)}
+.x{background:none;border:none;cursor:pointer;color:var(--muted);padding:6px;border-radius:8px;flex:none;line-height:0}
+.x:hover{background:var(--soft);color:var(--ink)}
+form{padding:20px 28px 28px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{margin-bottom:14px}
+label{display:block;font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+label .req{color:var(--accent)}
+input,select,textarea{
+  width:100%;font:inherit;font-size:.96rem;color:var(--ink);background:var(--white);
+  padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r-sm);transition:border-color .18s,box-shadow .18s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(37,51,107,.1);outline:none}
+textarea{resize:vertical;min-height:96px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.form-note{font-size:.8rem;color:var(--muted);margin-top:14px;text-align:center}
+.msg{display:none;padding:14px 16px;border-radius:var(--r-sm);font-size:.92rem;margin-bottom:16px}
+.msg.ok{display:block;background:#e9f7f1;color:#14614a;border:1px solid #bfe7d8}
+.msg.err{display:block;background:#fdeceb;color:#8f2420;border:1px solid #f6cfcc}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
 
-        /* Contenedor que agrupa la tarjeta y la foto circular */
-        .benefit-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px; /* Espacio entre la tarjeta y la foto */
-        }
-
-        .benefit-item {
-            padding: 30px 20px;
-            background: var(--white);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            box-sizing: border-box;
-            flex-grow: 1; /* Obliga a que las 3 tarjetas tengan la misma altura */
-        }
-        .benefit-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-        }
-        .benefit-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Estilo para convertir las fotos en círculos perfectos */
-        .benefit-img {
-            width: 240px; /* Ancho de la foto */
-            height: 240px; /* Alto de la foto (debe ser igual al ancho) */
-            border-radius: 50%; /* Esto es lo que la hace redonda */
-            object-fit: cover; /* Evita que la foto se estire o se deforme */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombrita suave */
-        }
-
-        /* Agregamos este nuevo bloque que le dice qué hacer cuando el mouse pasa por encima */
-        .benefit-item:hover {
-            transform: scale(1.03); /* Agranda la tarjeta un 3% */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.06); /* Sombra más pronunciada para resaltar */
-        }
-        .benefit-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Modo de Uso con Video */
-        .modo-uso-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .step {
-            display: flex;
-            align-items: center;
-            background: var(--white);
-            padding: 15px 20px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .step-number {
-            background-color: var(--accent-color);
-            color: var(--white);
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-right: 15px;
-        }
-
-        /* --- NUEVO CARRUSEL MODO DE USO --- */
-        .carousel-uso-container {
-            width: 100%;
-            aspect-ratio: 16/9; /* Mantiene la proporción rectangular tipo video */
-            background-color: var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .carousel-step {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Evita que las fotos se deformen */
-            opacity: 0;
-            transition: opacity 1s ease-in-out; /* Transición suave de 1 segundo */
-        }
-
-        .carousel-step.active {
-            opacity: 1;
-        }
-
-        /* Tabla de Especificaciones */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            border: 1px solid var(--border-color);
-        }
-        th, td {
-            padding: 18px 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        th {
-            background-color: var(--bg-color);
-            font-weight: 600;
-            width: 30%;
-            color: var(--text-color);
-        }
-        tr:last-child th, tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Footer Oscuro */
-        footer {
-            background-color: var(--text-color);
-            color: var(--white);
-            padding: 50px 20px 30px;
-            text-align: center;
-        }
-        footer h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            color: var(--white);
-        }
-        footer a { color: #60A5FA; text-decoration: none; font-weight: 600; }
-        footer a:hover { text-decoration: underline; }
-        
-        .contact-links {
-            font-size: 1.2rem;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .pipe {
-            color: #9CA3AF;
-            font-weight: 300;
-        }
-
-        .legal {
-            margin-top: 50px;
-            font-size: 0.85rem;
-            color: #9CA3AF;
-        }
-
-        /* Ajustes específicos para celulares */
-        @media (max-width: 600px) {
-            .logo img { 
-                height: 25px; 
-            }
-
-            .btn-header {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            table, thead, tbody, th, td, tr { display: block; }
-            th { width: auto; background-color: transparent; padding-bottom: 5px; color: var(--accent-color); border-bottom: none;}
-            td { padding-top: 0; margin-bottom: 15px; }
-            
-            .contact-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .pipe {
-                display: none; 
-            }
-        }
-        @media (max-width: 850px) {
-            /* Transformamos el Hero en columna para celulares */
-            .hero-new {
-                flex-direction: column;
-                min-height: auto;
-                background-color: var(--bg-color); /* Fondo gris claro detrás de la tarjeta */
-                padding-bottom: 50px;
-            }
-            .hero-bg {
-                position: relative;
-                width: 100%;
-                height: 320px; /* Altura de la foto en el celular */
-                -webkit-mask-image: none; /* Le sacamos el degradado */
-                mask-image: none;
-            }
-            .hero-content {
-                padding: 0;
-                display: flex;
-                justify-content: center;
-            }
-            .hero-card {
-                width: 90%;
-                max-width: none;
-                margin-top: -60px; /* Este número negativo la sube arriba de la foto */
-                background: var(--white);
-                padding: 30px 20px;
-                border-radius: 12px;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra elegante */
-                text-align: center;
-            } 
-            .hero-slide {
-                background-position: center center !important; /* Mágicamente centra la foto */
-            }
-            .modo-uso-layout { grid-template-columns: 1fr; }
-            .carousel-uso-container { order: -1; margin-bottom: 20px; }
-            .hero-card h1 { font-size: 1.8rem; } /* <-- Acá está la corrección */
-            
-        }
-    </style>
+/* ============ Reveal ============ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Ir al contenido</a>
 
-    <header>
-        <div class="container header-flex">
-            <div class="logo">
-                <img src="LOGOS/URIPEL-AZUL.jpg" alt="Logo URIPEL">
-            </div>
-            <a href="#contacto" class="btn-header">Contacto</a>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="#" aria-label="URIPEL — inicio">
+      <img src="img/logo.webp" width="573" height="110" alt="URIPEL">
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#producto">El producto</a>
+      <a href="#modo-de-uso">Modo de uso</a>
+      <a href="#especificaciones">Especificaciones</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="btn btn--primary btn--sm" href="contacto.html" data-modal>Solicitar información</a>
+    </nav>
+    <a class="btn btn--primary btn--sm hdr__cta-desktop" href="contacto.html" data-modal>Solicitar información</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">Recolector de muestras para inodoro</span>
+        <h1>La recolección de muestras, resuelta en el inodoro.</h1>
+        <p class="lede">URIPEL es un recipiente recolector de orina y materia fecal que se apoya sobre cualquier inodoro estándar. Permite recolectar y medir la muestra con higiene, sin chatas y sin insumos descartables, tanto en instituciones de salud como en el hogar.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
+          <a class="btn btn--ghost" href="#modo-de-uso">Ver cómo funciona</a>
         </div>
-    </header>
+        <ul class="facts">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Reutilizable con lavado convencional</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Medidor graduado integrado</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Marca registrada Nro 99.974</li>
+        </ul>
+      </div>
 
-    <!-- ACÁ HABÍA DESAPARECIDO TODO ESTO: VUELVE EL HERO -->
-    <section class="hero-new">
-        <div class="hero-bg">
-            <!-- Poné acá las rutas de tus fotos. La primera lleva la clase "active" -->
-            <div class="hero-slide active" style="background-image: url('PHOTOS/hero 1.png');"></div>
-            <div class="hero-slide" style="background-image: url('PHOTOS/hero 2.png');"></div>
-            <div class="hero-slide" style="background-image: url('PHOTOS/hero 3.png');"></div>
+      <div class="shot" id="shot" aria-roledescription="carrusel" aria-label="URIPEL en uso">
+        <div class="shot__track">
+          <div class="shot__slide is-on" data-cap="Uso hospitalario y domiciliario">
+            <img src="img/hero-1.webp" width="1600" height="994" alt="Profesional de salud con guantes sostiene el recolector URIPEL junto a la cama de un paciente." fetchpriority="high" decoding="async">
+          </div>
+          <div class="shot__slide" data-cap="Se apoya en inodoros estándar">
+            <img src="img/hero-2.webp" width="1600" height="1186" alt="URIPEL colocado en el frente de un inodoro estándar, con la tabla apoyada encima." loading="lazy" decoding="async">
+          </div>
+          <div class="shot__slide" data-cap="Trasvase directo al frasco">
+            <img src="img/hero-3.webp" width="1600" height="1199" alt="Vuelco de la muestra desde la ranura vertedora de URIPEL hacia un frasco de laboratorio." loading="lazy" decoding="async">
+          </div>
         </div>
-        
-        <div class="hero-content">
-            <div class="hero-card">
-                <h1>Mayor comodidad para tus cuidados</h1>
-                <p>URIPEL es el recipiente recolector adaptado a inodoros diseñado para garantizar una higiene óptima y confortable en entornos hospitalarios y domiciliarios.</p>
-                <p>Su implementación busca dar un salto en la calidad de los cuidados personales para todos. Mediante su uso sencillo, bajo costo y fácil limpieza, garantizamos un nivel superior de higiene.</p>
-                <p>Porque sabemos que el bienestar requiere soluciones prácticas, nuestro diseño ergonómico busca devolverle la tranquilidad, la dignidad y la autonomía a quienes más lo necesitan.</p>
-            </div>
+        <span class="shot__cap" id="shotCap">Uso hospitalario y domiciliario</span>
+        <div class="dots" id="shotDots" role="tablist" aria-label="Imágenes del producto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PÚBLICO ===== -->
+  <section class="sec sec--soft" id="publico">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Para quién es</span>
+        <h2>Un mismo dispositivo, tres escenarios de uso</h2>
+      </div>
+      <div class="who">
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
+          <h3>Instituciones de salud</h3>
+          <p>Hospitales, clínicas, sanatorios y geriátricos que necesitan recolectar y medir diuresis o muestras sin sumar descartables por paciente.</p>
         </div>
-    </section>
-
-    <section class="section alt" id="beneficios">
-        <div class="container">
-            <h2>¿Por qué elegir URIPEL?</h2>
-            <div class="benefits-grid">
-                
-                <!-- Columna 1 -->
-                <div class="benefit-column">
-                    <div class="benefit-item">
-                        <h3>Higiene Total</h3>
-                        <p>Permite la recolección y medición de muestras fisiológicas de forma segura y sin necesidad de insumos adicionales.</p>
-                    </div>
-                    <!-- Cambiá "foto-1.jpg" por el nombre de tu foto -->
-                    <img src="PHOTOS/bubble 1.png" alt="Higiene Total" class="benefit-img">
-                </div>
-
-                <!-- Columna 2 -->
-                <div class="benefit-column">
-                    <div class="benefit-item">
-                        <h3>Diseño Universal</h3>
-                        <p>Se ajusta perfectamente a cualquier inodoro estándar. Apto para el uso de adultos y niños.</p>
-                    </div>
-                    <!-- Cambiá "foto-2.jpg" por el nombre de tu foto -->
-                    <img src="PHOTOS/bubble 2.png" alt="Diseño Universal" class="benefit-img">
-                </div>
-
-                <!-- Columna 3 -->
-                <div class="benefit-column">
-                    <div class="benefit-item">
-                        <h3>Reutilizable</h3>
-                        <p>Fabricado para durar, permitiendo su reutilización con lavados convencionales.</p>
-                    </div>
-                    <!-- Cambiá "foto-3.jpg" por el nombre de tu foto -->
-                    <img src="PHOTOS/bubble 3.png" alt="Reutilizable" class="benefit-img">
-                </div>
-
-            </div>
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Cuidado domiciliario</h3>
+          <p>Personas en tratamiento, adultos mayores y quienes los acompañan: el estudio se hace en el baño de casa, con autonomía y sin situaciones incómodas.</p>
         </div>
-    </section>
-
-    <section class="section" id="modo-de-uso">
-        <div class="container">
-            <h2>Modo de Uso</h2>
-            <div class="modo-uso-layout">
-                <div class="steps">
-                    <div class="step"><div class="step-number">1</div><div>Levante la tapa y la tabla del inodoro y apoye el adaptador URIPEL en el frente.</div></div>
-                    <div class="step"><div class="step-number">2</div><div>Baje la tabla y utilice el inodoro normalmente.</div></div>
-                    <div class="step"><div class="step-number">3</div><div>Retire su adaptador URIPEL con la muestra recolectada. Descarte el liquido excedente.</div></div>
-                    <div class="step"><div class="step-number">4</div><div>Utilice el medidor interno para volcar la cantidad deseada.</div></div>
-                    <div class="step"><div class="step-number">5</div><div>Lave el adaptador URIPEL para su próximo uso.</div></div>
-                </div>
-                <div class="carousel-uso-container">
-                    <img src="PHOTOS/Step_1.png" alt="Paso 1" class="carousel-step active">
-                    <img src="PHOTOS/Step_2.png" alt="Paso 2" class="carousel-step">
-                    <img src="PHOTOS/Step_3.png" alt="Paso 3" class="carousel-step">
-                    <img src="PHOTOS/Step_4.png" alt="Paso 4" class="carousel-step">
-                    <img src="PHOTOS/Step_5.png" alt="Paso 5" class="carousel-step">
-                </div>
-            </div>
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
+          <h3>Laboratorios y distribuidores</h3>
+          <p>Laboratorios de análisis y droguerías que buscan un recolector reutilizable, apilable y simple de explicarle al paciente.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== BENEFICIOS ===== -->
+  <section class="sec" id="producto">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">El producto</span>
+        <h2>Por qué elegir URIPEL</h2>
+        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
+      </div>
 
-    <footer id="contacto">
-        <div class="container">
-            <h3>Contacto Comercial</h3>
-            <p>Para consultas comerciales o distribución, comunícate con nosotros:</p>
-            <div class="contact-links">
-                <a href="mailto:
-            
-            <div class="legal">
-                <p>Fabricado por URIPEL | Marca registrada Nro 99.974</p>
-            </div>
+      <div class="benefits">
+        <article class="bcard rv">
+          <img src="img/benefit-1.webp" width="760" height="760" alt="Detalle de la escala graduada en mililitros y onzas moldeada en el interior del recolector." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Medición integrada</h3>
+            <p>La escala graduada en ml y oz viene moldeada en el propio recipiente. Se lee el volumen directamente, sin trasvasar a un jarro medidor aparte.</p>
+          </div>
+        </article>
+        <article class="bcard rv">
+          <img src="img/benefit-2.webp" width="760" height="760" alt="Varias unidades de URIPEL apiladas en la estantería de insumos de un servicio de salud." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Apilable y fácil de almacenar</h3>
+            <p>Las unidades se apilan una sobre otra y ocupan poco lugar en el depósito, el carro de enfermería o el botiquín de casa.</p>
+          </div>
+        </article>
+        <article class="bcard rv">
+          <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Reutilizable</h3>
+            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse. Menos residuos y menos costo por estudio frente al descartable.</p>
+          </div>
+        </article>
+      </div>
+
+      <ul class="mini">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas, chatas ni accesorios para funcionar.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== MODO DE USO ===== -->
+  <section class="sec sec--soft" id="modo-de-uso">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Modo de uso</span>
+        <h2>Cinco pasos, menos de un minuto</h2>
+        <p class="lede">Tocá cada paso para ver la imagen correspondiente.</p>
+      </div>
+
+      <div class="uso">
+        <ol class="steps" id="steps">
+          <li><button class="step" type="button" data-i="0" aria-current="true"><span class="step__n">1</span><span>Levantá la tapa y la tabla del inodoro.</span></button></li>
+          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá el adaptador URIPEL en el frente del inodoro, bajá la tabla y usalo con normalidad.</span></button></li>
+          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retirá el adaptador con la muestra recolectada y descartá el líquido excedente.</span></button></li>
+          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Volcá la cantidad necesaria en el frasco usando la ranura vertedora.</span></button></li>
+          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavá el adaptador con agua y jabón para el próximo uso.</span></button></li>
+        </ol>
+
+        <div class="viewer" id="viewer" aria-roledescription="carrusel" aria-label="Pasos de uso">
+          <div class="viewer__slide is-on"><img src="img/step-1.webp" width="1200" height="670" alt="Paso 1: una mano levanta la tapa y la tabla del inodoro." loading="lazy" decoding="async"></div>
+          <div class="viewer__slide"><img src="img/step-2.webp" width="1200" height="670" alt="Paso 2: se coloca el recolector URIPEL en el frente del inodoro." loading="lazy" decoding="async"></div>
+          <div class="viewer__slide"><img src="img/step-3.webp" width="1200" height="670" alt="Paso 3: se retira el recolector con la muestra." loading="lazy" decoding="async"></div>
+          <div class="viewer__slide"><img src="img/step-4.webp" width="1200" height="669" alt="Paso 4: se vuelca la muestra en un frasco graduado a través de la ranura vertedora." loading="lazy" decoding="async"></div>
+          <div class="viewer__slide"><img src="img/step-5.webp" width="1200" height="669" alt="Paso 5: lavado del recolector bajo la canilla." loading="lazy" decoding="async"></div>
+          <div class="viewer__bar">
+            <button class="nav-b" type="button" id="vPrev" aria-label="Paso anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button class="nav-b" type="button" id="vNext" aria-label="Paso siguiente"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+            <div class="viewer__prog" id="vProg" aria-hidden="true"></div>
+          </div>
         </div>
-    </footer>
-<!-- SCRIPT DEL FADE DEL HERO -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            /* --- 1. SCRIPT DEL FADE DEL HERO --- */
-            const heroSlides = document.querySelectorAll('.hero-slide');
-            let currentHero = 0;
-            if(heroSlides.length > 0) {
-                setInterval(() => {
-                    heroSlides[currentHero].classList.remove('active');
-                    currentHero = (currentHero + 1) % heroSlides.length;
-                    heroSlides[currentHero].classList.add('active');
-                }, 4000); 
-            }
+      </div>
+    </div>
+  </section>
 
-            /* --- 2. SCRIPT PARA CARRUSEL MODO DE USO --- */
-            const stepSlides = document.querySelectorAll('.carousel-step');
-            let currentStep = 0;
-            if(stepSlides.length > 0) {
-                setInterval(() => {
-                    stepSlides[currentStep].classList.remove('active');
-                    currentStep = (currentStep + 1) % stepSlides.length;
-                    stepSlides[currentStep].classList.add('active');
-                }, 3000); 
-            }
-            
+  <!-- ===== ESPECIFICACIONES ===== -->
+  <section class="sec" id="especificaciones">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Ficha técnica</span>
+        <h2>Especificaciones</h2>
+      </div>
+      <div class="specs">
+        <div>
+          <table>
+            <tbody>
+              <tr><th scope="row">Material</th><td>ABS (acrilonitrilo butadieno estireno) de alta resistencia</td></tr>
+              <tr><th scope="row">Medidas</th><td>35 cm × 21,5 cm × 9,5 cm</td></tr>
+              <tr><th scope="row">Medición</th><td>Escala graduada en mililitros y onzas moldeada en el recipiente</td></tr>
+              <tr><th scope="row">Diseño</th><td>Ranura vertedora integrada para facilitar la manipulación</td></tr>
+              <tr><th scope="row">Uso</th><td>Reutilizable. Lavado con agua y jabón</td></tr>
+              <tr><th scope="row">Esterilidad</th><td>Producto NO estéril</td></tr>
+              <tr><th scope="row">Presentación</th><td>Unidad individual en bolsa</td></tr>
+              <tr><th scope="row">Marca</th><td>URIPEL — marca registrada Nro 99.974</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Producto no estéril. Si el estudio requiere una muestra estéril, seguí el protocolo indicado por el profesional o el laboratorio.</p>
+        </div>
+        <div class="aside">
+          <h3>¿Necesitás una cotización?</h3>
+          <p>Escribinos si querés precios por cantidad, condiciones para distribución o más información técnica del producto.</p>
+          <a class="btn btn--light" href="contacto.html" data-modal>Escribir a URIPEL</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec sec--soft" id="preguntas">
+    <div class="wrap">
+      <div class="sec-head center" style="text-align:center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Lo que más nos consultan</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Sirve para cualquier inodoro?</summary>
+          <div class="a">Está diseñado para apoyarse en el frente de inodoros estándar, que son la gran mayoría de los domiciliarios e institucionales. Si tenés dudas con un modelo en particular, escribinos con una foto y te respondemos.</div>
+        </details>
+        <details>
+          <summary>¿Se puede recolectar orina y materia fecal?</summary>
+          <div class="a">Sí. URIPEL está pensado para la recolección de muestras fisiológicas, tanto de orina como de materia fecal.</div>
+        </details>
+        <details>
+          <summary>¿Cómo se limpia y cuántas veces se puede usar?</summary>
+          <div class="a">Se lava con agua y jabón como cualquier utensilio, con lavado convencional. Está fabricado en ABS de alta resistencia justamente para ser reutilizado.</div>
+        </details>
+        <details>
+          <summary>¿Es un producto estéril?</summary>
+          <div class="a">No. URIPEL se comercializa como producto NO estéril. Para estudios que exigen muestra estéril, seguí las indicaciones del profesional o del laboratorio que solicitó el análisis.</div>
+        </details>
+        <details>
+          <summary>¿Lo pueden usar chicos?</summary>
+          <div class="a">Sí, el diseño es apto tanto para adultos como para niños, siempre con la supervisión que corresponda en cada caso.</div>
+        </details>
+        <details>
+          <summary>¿Cómo mido el volumen recolectado?</summary>
+          <div class="a">El recipiente trae una escala graduada en mililitros y onzas moldeada en el interior, así que se lee directamente. Si necesitás pasar la muestra a un frasco, la ranura vertedora permite volcarla sin derrames.</div>
+        </details>
+        <details>
+          <summary>¿Venden por unidad o al por mayor?</summary>
+          <div class="a">Atendemos consultas tanto de particulares como de instituciones de salud y distribuidores. Contanos qué cantidad necesitás en el formulario de contacto y te pasamos las condiciones.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="sec cta" id="contacto">
+    <div class="wrap">
+      <h2>Hablemos de tu caso</h2>
+      <p>Contanos si es para una institución, para uso domiciliario o para distribución y te respondemos con la información que necesites.</p>
+      <a class="btn btn--light" href="contacto.html" data-modal>Solicitar información</a>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__top">
+      <div>
+        <img src="img/logo-white.webp" width="573" height="110" alt="URIPEL">
+        <p>Recipiente recolector de muestras adaptado a inodoros, para instituciones de salud y cuidado domiciliario.</p>
+      </div>
+      <div class="ft__links">
+        <a href="contacto.html" data-modal>Formulario de contacto</a>
+        <a href="#modo-de-uso">Modo de uso</a>
+        <a href="#especificaciones">Especificaciones técnicas</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+      </div>
+    </div>
+    <div class="ft__legal">
+      <span>© <span id="yr">2026</span> URIPEL. Marca registrada Nro 99.974.</span>
+      <span>Producto no estéril. No reemplaza la indicación de un profesional de la salud.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODAL DE CONTACTO ===== -->
+<dialog id="modal" aria-labelledby="modalTitle">
+  <div class="modal__hd">
+    <div>
+      <h2 id="modalTitle">Solicitar información</h2>
+      <p>Completá el formulario y te respondemos por mail a la brevedad.</p>
+    </div>
+    <button class="x" type="button" id="modalX" aria-label="Cerrar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <form id="form" novalidate>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    <div class="row">
+      <div class="f">
+        <label for="c-nombre">Nombre y apellido <span class="req">*</span></label>
+        <input id="c-nombre" name="Nombre" type="text" required autocomplete="name">
+      </div>
+      <div class="f">
+        <label for="c-email">Email <span class="req">*</span></label>
+        <input id="c-email" name="Email" type="email" required autocomplete="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="f">
+        <label for="c-tel">Teléfono</label>
+        <input id="c-tel" name="Telefono" type="tel" autocomplete="tel">
+      </div>
+      <div class="f">
+        <label for="c-org">Institución / empresa</label>
+        <input id="c-org" name="Organizacion" type="text" autocomplete="organization">
+      </div>
+    </div>
+    <div class="f">
+      <label for="c-motivo">Motivo de la consulta</label>
+      <select id="c-motivo" name="Motivo">
+        <option>Compra para una institución de salud</option>
+        <option>Uso domiciliario / particular</option>
+        <option>Distribución o reventa</option>
+        <option>Información técnica</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="f">
+      <label for="c-msg">Mensaje <span class="req">*</span></label>
+      <textarea id="c-msg" name="Mensaje" required placeholder="Contanos qué necesitás: cantidad, plazos, dudas técnicas…"></textarea>
+    </div>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn--primary" type="submit" id="send" style="width:100%">Enviar consulta</button>
+    <p class="form-note">Usamos tus datos únicamente para responder esta consulta.</p>
+  </form>
+</dialog>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"URIPEL",
+  "category":"Recolector de muestras fisiológicas",
+  "description":"Recipiente recolector de orina y materia fecal adaptado a inodoros estándar. Reutilizable, con escala graduada integrada y ranura vertedora. Para uso hospitalario y domiciliario.",
+  "image":"https://www.uripel.com/img/og-image.jpg",
+  "url":"https://www.uripel.com/",
+  "material":"ABS",
+  "brand":{"@type":"Brand","name":"URIPEL"},
+  "additionalProperty":[
+    {"@type":"PropertyValue","name":"Medidas","value":"35 cm x 21,5 cm x 9,5 cm"},
+    {"@type":"PropertyValue","name":"Esterilidad","value":"Producto no estéril"},
+    {"@type":"PropertyValue","name":"Reutilizable","value":"Sí, lavado con agua y jabón"}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Año ---- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---- Header sticky ---- */
+  var hdr = document.getElementById('hdr');
+  var onScroll = function(){ hdr.classList.toggle('is-stuck', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- Menú mobile ---- */
+  var burger = document.getElementById('burger'), nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A'){ nav.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  /* ---- Carrusel del hero ---- */
+  var shot = document.getElementById('shot');
+  if (shot){
+    var slides = shot.querySelectorAll('.shot__slide');
+    var cap = document.getElementById('shotCap');
+    var dotsBox = document.getElementById('shotDots');
+    var i = 0, timer = null;
+    slides.forEach(function(_, n){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Imagen ' + (n+1));
+      b.setAttribute('aria-current', n === 0 ? 'true' : 'false');
+      b.addEventListener('click', function(){ go(n); restart(); });
+      dotsBox.appendChild(b);
+    });
+    var dots = dotsBox.querySelectorAll('button');
+    function go(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
+      dots.forEach(function(d, k){ d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+      cap.textContent = slides[i].getAttribute('data-cap');
+    }
+    /* start() siempre limpia antes de crear: si no, cada hover/foco deja un
+       intervalo huérfano corriendo y el carrusel se acelera solo. */
+    function stop(){ clearInterval(timer); timer = null; }
+    function start(){ stop(); if (!reduce) timer = setInterval(function(){ go(i+1); }, 5200); }
+    function restart(){ start(); }
+    shot.addEventListener('mouseenter', stop);
+    shot.addEventListener('mouseleave', start);
+    shot.addEventListener('focusin', stop);
+    shot.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : restart(); });
+    start();
+  }
+
+  /* ---- Modo de uso: pasos + imagen sincronizados ---- */
+  var viewer = document.getElementById('viewer');
+  if (viewer){
+    var vs = viewer.querySelectorAll('.viewer__slide');
+    var btns = document.querySelectorAll('#steps .step');
+    var prog = document.getElementById('vProg');
+    var s = 0, t2 = null, visible = true;
+    vs.forEach(function(_, n){
+      var b = document.createElement('span');
+      if (n === 0) b.className = 'is-on';
+      prog.appendChild(b);
+    });
+    var bars = prog.querySelectorAll('span');
+    function set(n){
+      s = (n + vs.length) % vs.length;
+      vs.forEach(function(el, k){ el.classList.toggle('is-on', k === s); });
+      bars.forEach(function(el, k){ el.classList.toggle('is-on', k === s); });
+      btns.forEach(function(el, k){
+        if (k === s) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ set(parseInt(b.dataset.i,10)); hold(); });
+    });
+    document.getElementById('vPrev').addEventListener('click', function(){ set(s-1); hold(); });
+    document.getElementById('vNext').addEventListener('click', function(){ set(s+1); hold(); });
+    /* Mismo criterio que el hero: un solo intervalo vivo por vez. */
+    function pause(){ clearInterval(t2); t2 = null; }
+    function play(){ pause(); if (!reduce && visible) t2 = setInterval(function(){ set(s+1); }, 4600); }
+    function hold(){ play(); }
+    var wrapUso = viewer.closest('.uso');
+    wrapUso.addEventListener('mouseenter', pause);
+    wrapUso.addEventListener('mouseleave', play);
+    wrapUso.addEventListener('focusin', pause);
+    wrapUso.addEventListener('focusout', play);
+    /* Solo corre cuando la sección está a la vista */
+    if ('IntersectionObserver' in window){
+      visible = false;
+      new IntersectionObserver(function(en){
+        en.forEach(function(e){
+          visible = e.isIntersecting;
+          visible ? play() : pause();
         });
-    </script>
+      }, {threshold:.35}).observe(viewer);
+    } else { play(); }
+    document.addEventListener('visibilitychange', function(){ document.hidden ? pause() : play(); });
+  }
+
+  /* ---- Modal de contacto ---- */
+  var modal = document.getElementById('modal');
+  var supportsDialog = typeof HTMLDialogElement === 'function' && modal && typeof modal.showModal === 'function';
+  if (supportsDialog){
+    var last = null;
+    document.querySelectorAll('[data-modal]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        last = a;
+        modal.showModal();
+        setTimeout(function(){ document.getElementById('c-nombre').focus(); }, 60);
+      });
+    });
+    document.getElementById('modalX').addEventListener('click', function(){ modal.close(); });
+    modal.addEventListener('click', function(e){
+      var r = modal.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) modal.close();
+    });
+    modal.addEventListener('close', function(){ if (last) last.focus(); });
+  }
+  /* Si el navegador no soporta <dialog>, los links siguen a contacto.html */
+
+  /* ---- Envío del formulario ---- */
+  /* El mail se arma en JS para que los bots no lo levanten del HTML.
+     Si activás un alias en FormSubmit, reemplazá ENDPOINT por él. */
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + ['uripelcontacto','gmail.com'].join('@');
+  var form = document.getElementById('form');
+  if (form){
+    var msg = document.getElementById('msg'), send = document.getElementById('send');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      msg.className = 'msg'; msg.textContent = '';
+      if (!form.checkValidity()){
+        msg.className = 'msg err';
+        msg.textContent = 'Revisá los campos obligatorios: nombre, email y mensaje.';
+        form.reportValidity();
+        return;
+      }
+      if (form._honey.value){ return; } /* honeypot anti-spam */
+      send.disabled = true; send.textContent = 'Enviando…';
+      var data = {
+        _subject: 'Consulta desde uripel.com',
+        _template: 'table',
+        _captcha: 'false'
+      };
+      new FormData(form).forEach(function(v,k){ if (k.charAt(0) !== '_') data[k] = v; });
+      fetch(ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(data)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(){
+        form.reset();
+        msg.className = 'msg ok';
+        msg.textContent = '¡Listo! Recibimos tu consulta y te respondemos por mail a la brevedad.';
+      })
+      .catch(function(){
+        msg.className = 'msg err';
+        msg.textContent = 'No pudimos enviar el mensaje. Probá de nuevo en un momento.';
+      })
+      .finally(function(){ send.disabled = false; send.textContent = 'Enviar consulta'; });
+    });
+  }
+
+  /* ---- Aparición suave ---- */
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px'});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
 </body>
 </html>
