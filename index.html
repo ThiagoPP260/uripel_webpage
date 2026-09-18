@@ -132,7 +132,13 @@ a{color:var(--navy)}
 
 /* ============ Hero ============ */
 .hero{padding-block:clamp(52px,7vw,92px) clamp(52px,7vw,92px);overflow:hidden}
-.hero__grid{display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(36px,5vw,60px);align-items:center}
+.hero__grid{
+  display:grid;grid-template-columns:1fr 1.04fr;gap:0 clamp(36px,5vw,60px);align-items:center;
+  grid-template-areas:"head shot" "body shot";
+}
+.hero__head{grid-area:head}
+.hero__body{grid-area:body}
+.shot{grid-area:shot}
 .hero h1{margin-bottom:22px}
 .hero .lede{font-size:clamp(1.04rem,1.7vw,1.19rem)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
@@ -156,20 +162,40 @@ a{color:var(--navy)}
 .dots button{width:8px;height:8px;padding:0;border:none;border-radius:99px;background:#c3cadb;cursor:pointer;transition:all .25s var(--ease)}
 .dots button[aria-current="true"]{background:var(--navy);width:22px}
 @media (max-width:900px){
-  .hero__grid{grid-template-columns:1fr;gap:34px}
+  .hero__grid{grid-template-columns:1fr;grid-template-areas:"head" "shot" "body";gap:26px 0}
+  .hero h1{margin-bottom:0}
   .shot{aspect-ratio:16/11}
   .facts{gap:10px 18px}
 }
 
 /* ============ Por qué importa ============ */
 .tags-lead{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:var(--muted);margin-bottom:16px}
-.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
-.tags li{
-  display:inline-flex;align-items:center;gap:9px;background:var(--white);
-  border:1px solid var(--line);border-radius:99px;padding:10px 18px;
+
+/* Cinta continua: dos pistas idénticas que se persiguen. La segunda es
+   decorativa (aria-hidden) para que el lector de pantalla lea la lista una vez. */
+.ribbon{
+  display:flex;gap:12px;overflow:hidden;padding:4px 0;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
+}
+.ribbon__track{
+  display:flex;flex:none;gap:12px;list-style:none;margin:0;padding:0;
+  animation:ribbon-slide 34s linear infinite;
+}
+.ribbon:hover .ribbon__track,.ribbon:focus-within .ribbon__track{animation-play-state:paused}
+@keyframes ribbon-slide{from{transform:translateX(0)}to{transform:translateX(calc(-100% - 12px))}}
+.ribbon li{
+  display:inline-flex;align-items:center;gap:9px;white-space:nowrap;background:var(--white);
+  border:1px solid var(--line);border-radius:99px;padding:11px 20px;
   font-size:.95rem;font-weight:500;color:var(--ink);box-shadow:var(--sh-1);
 }
-.tags li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none}
+.ribbon li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none}
+@media (prefers-reduced-motion:reduce){
+  .ribbon{overflow-x:auto}
+  .ribbon__track{animation:none}
+  .ribbon__track[aria-hidden="true"]{display:none}
+}
+
 .punch{
   margin-top:clamp(32px,4vw,46px);padding:clamp(26px,3.4vw,36px) clamp(26px,3.4vw,40px);
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
@@ -306,6 +332,43 @@ textarea{resize:vertical;min-height:96px}
 .msg.err{display:block;background:#fdeceb;color:#8f2420;border:1px solid #f6cfcc}
 @media (max-width:560px){.row{grid-template-columns:1fr}}
 
+/* ============ Ajustes de celular ============ */
+@media (max-width:700px){
+  :root{--sec:clamp(48px,9vw,64px)}
+  .hero h1{font-size:1.95rem}
+  .hero{padding-block:36px 44px}
+
+  /* Menos alto por tarjeta: la foto pasa a ser más panorámica */
+  .bcard img{aspect-ratio:16/10}
+  .benefits{gap:16px}
+  .who{gap:14px}
+  .mini{gap:12px;margin-top:24px;padding-top:24px}
+  .sec-head{margin-bottom:26px}
+  .punch{margin-top:26px}
+
+  /* Áreas táctiles: mínimo 44 px de alto donde se toca */
+  .dots{padding:12px 14px;gap:16px}
+  .dots button{height:12px;position:relative}
+  .dots button::after{content:"";position:absolute;inset:-15px -8px}
+  .dots button[aria-current="true"]{width:24px}
+  .hdr__logo{padding:10px 0}
+  .eyebrow{font-size:.82rem}
+  .shot__cap{font-size:.84rem}
+  .viewer__bar .nav-b{width:44px;height:44px}
+  .ft__links{gap:2px}
+  .ft__links a{padding:11px 0}
+  .facts{margin-top:26px;padding-top:20px;gap:8px 18px}
+}
+
+/* ============ Texto según pantalla ============ */
+/* .no-mob se oculta en celular; .solo-mob aparece solo ahí. Sirven para
+   acortar frases sin sacar el contenido del HTML. */
+.solo-mob{display:none}
+@media (max-width:700px){
+  .no-mob{display:none}
+  .solo-mob{display:inline}
+}
+
 /* ============ Reveal ============ */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -339,10 +402,13 @@ textarea{resize:vertical;min-height:96px}
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap hero__grid">
-      <div>
+      <div class="hero__head">
         <span class="eyebrow">Recolector y medidor para inodoro</span>
         <h1>Más simple para quien cuida, más digno para el cuidado.</h1>
-        <p class="lede">URIPEL se apoya en cualquier inodoro y trae una escala graduada adentro: mide cuánta orina elimina el paciente y recolecta la muestra que pide el laboratorio. El paciente usa el baño como siempre, en el hospital o en casa.</p>
+      </div>
+
+      <div class="hero__body">
+        <p class="lede">URIPEL se apoya en cualquier inodoro y trae una escala graduada adentro: mide cuánta orina elimina el paciente<span class="no-mob"> y recolecta la muestra que pide el laboratorio</span>. El paciente usa el baño como siempre, en el hospital o en casa.</p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
           <a class="btn btn--ghost" href="#por-que">Por qué importa medirla</a>
@@ -377,25 +443,37 @@ textarea{resize:vertical;min-height:96px}
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Por qué importa</span>
-        <h2>Cuánta orina elimina el paciente es parte del tratamiento</h2>
-        <p class="lede">Los riñones mantienen el equilibrio de agua, sales y minerales del cuerpo. Cuando ese equilibrio se altera, el volumen de orina es una de las primeras señales que el médico sigue de cerca.</p>
+        <h2>Controlar la orina es parte del tratamiento. Hacerlo sencillo también.</h2>
+        <p class="lede"><span class="no-mob">Los riñones mantienen el equilibrio de agua, sales y minerales del cuerpo, y la</span><span class="solo-mob">La</span> orina es una de las primeras señales que el médico sigue de cerca. Por eso muchos tratamientos piden llevar la cuenta todos los días, una rutina tediosa<span class="no-mob"> que suele resolverse con recipientes improvisados y cálculos a ojo</span>.</p>
       </div>
 
-      <p class="tags-lead">Se controla en cuadros como:</p>
-      <ul class="tags">
-        <li>Deshidratación</li>
-        <li>Diabetes</li>
-        <li>Presión alta</li>
-        <li>Enfermedad renal crónica</li>
-        <li>Cáncer</li>
-        <li>Obstrucción urinaria</li>
-        <li>Lupus</li>
-        <li>Efecto de ciertos medicamentos</li>
-      </ul>
+      <p class="tags-lead">Se controla <span class="no-mob">tanto </span>en cuadros frecuentes<span class="no-mob"> como en los poco frecuentes</span>:</p>
+      <div class="ribbon" role="group" aria-label="Cuadros en los que se controla el volumen de orina">
+        <ul class="ribbon__track">
+          <li>Deshidratación</li>
+          <li>Diabetes</li>
+          <li>Presión alta</li>
+          <li>Enfermedad renal crónica</li>
+          <li>Cáncer</li>
+          <li>Obstrucción urinaria</li>
+          <li>Lupus</li>
+          <li>Efecto de ciertos medicamentos</li>
+        </ul>
+        <ul class="ribbon__track" aria-hidden="true">
+          <li>Deshidratación</li>
+          <li>Diabetes</li>
+          <li>Presión alta</li>
+          <li>Enfermedad renal crónica</li>
+          <li>Cáncer</li>
+          <li>Obstrucción urinaria</li>
+          <li>Lupus</li>
+          <li>Efecto de ciertos medicamentos</li>
+        </ul>
+      </div>
 
       <div class="punch rv">
-        <p>En la consulta preguntan siempre lo mismo: cuánto líquido toma el paciente por día y cuánta orina elimina.</p>
-        <p><strong>Con URIPEL, la respuesta es un número medido y no un cálculo aproximado.</strong></p>
+        <p>Ese control diario suele ser la parte más incómoda del tratamiento<span class="no-mob">: para el paciente, que siente que pierde intimidad, y para quien lo acompaña, que tiene que resolverlo todos los días</span>.</p>
+        <p><strong>URIPEL lo vuelve un gesto simple: el paciente usa el baño como siempre y el dato queda anotado.</strong></p>
       </div>
     </div>
   </section>
@@ -411,17 +489,17 @@ textarea{resize:vertical;min-height:96px}
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
           <h3>En la internación</h3>
-          <p>Hospitales, clínicas, sanatorios y geriátricos que llevan el control diario de los pacientes que se movilizan por sus propios medios.</p>
+          <p>Hospitales, clínicas, sanatorios y geriátricos que llevan el control diario de los pacientes<span class="no-mob"> que se movilizan por sus propios medios</span>.</p>
         </div>
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
           <h3>En casa</h3>
-          <p>Seguimientos que duran semanas o meses. El paciente anota sus propios valores en el baño de su casa y llega a la consulta con el registro hecho.</p>
+          <p><span class="no-mob">Seguimientos que duran semanas o meses. </span>El paciente anota sus propios valores en el baño de su casa y llega a la consulta con el registro hecho.</p>
         </div>
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 15h9"/></svg></div>
           <h3>Para el laboratorio</h3>
-          <p>Cuando hay que llevar una muestra: se junta en el mismo recipiente y se pasa al frasco por la ranura vertedora, sin contacto ni insumos aparte.</p>
+          <p>Cuando hay que llevar una muestra: se junta en el mismo recipiente y se pasa al frasco por la ranura vertedora<span class="no-mob">, sin contacto ni insumos aparte</span>.</p>
         </div>
       </div>
     </div>
@@ -433,37 +511,37 @@ textarea{resize:vertical;min-height:96px}
       <div class="sec-head">
         <span class="eyebrow">El producto</span>
         <h2>Por qué elegir URIPEL</h2>
-        <p class="lede">Pieza simple e innovadora: práctica, económica y reutilizable.</p>
+        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
       </div>
 
       <div class="benefits">
         <article class="bcard rv">
           <img src="img/benefit-1.webp" width="760" height="760" alt="Detalle de la escala graduada en mililitros y onzas moldeada en el interior del recolector." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Se mide ahí mismo</h3>
-            <p>La escala en mililitros y onzas viene moldeada en el recipiente. El valor se lee apenas se recolecta, sin pasar la orina a un jarro medidor y sin calcular a ojo.</p>
+            <h3>Medición integrada</h3>
+            <p><span class="no-mob">La escala graduada en ml y oz viene moldeada en el propio recipiente. </span>Se lee el volumen directamente, sin trasvasar a un jarro medidor aparte.</p>
           </div>
         </article>
         <article class="bcard rv">
           <img src="img/benefit-2.webp" width="760" height="760" alt="Varias unidades de URIPEL apiladas en la estantería de insumos de un servicio de salud." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Se apila y ocupa poco</h3>
-            <p>Las unidades se apilan una sobre otra: entran sin problema en el depósito, en el carro de enfermería o en el baño de una casa.</p>
+            <h3>Apilable y fácil de almacenar</h3>
+            <p>Las unidades se apilan una sobre otra y ocupan poco lugar<span class="no-mob"> en el depósito, el carro de enfermería o el botiquín de casa</span>.</p>
           </div>
         </article>
         <article class="bcard rv">
           <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Se lava y se vuelve a usar</h3>
-            <p>Agua y jabón entre un uso y el siguiente. En controles que duran semanas, eso es mucho menos descartable por paciente.</p>
+            <h3>Reutilizable</h3>
+            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse.<span class="no-mob"> Menos residuos y menos costo por estudio frente al descartable.</span></p>
           </div>
         </article>
       </div>
 
       <ul class="mini">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y sirve para adultos y chicos.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Orina y materia fecal.</b> Las dos muestras en el mismo recipiente, sin accesorios.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Pasa la muestra al frasco sin derrames ni contacto.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas ni accesorios para funcionar.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
       </ul>
     </div>
   </section>
@@ -474,7 +552,7 @@ textarea{resize:vertical;min-height:96px}
       <div class="sec-head">
         <span class="eyebrow">Modo de uso</span>
         <h2>Cinco pasos, menos de un minuto</h2>
-        <p class="lede">Colocarlo, leer el valor y lavarlo lleva menos de un minuto. Tocá cada paso para ver la imagen.</p>
+        <p class="lede">Colocarlo, leer el valor y lavarlo lleva menos de un minuto.<span class="no-mob"> Tocá cada paso para ver la imagen.</span></p>
       </div>
 
       <div class="uso">
