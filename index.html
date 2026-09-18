@@ -161,18 +161,23 @@ a{color:var(--navy)}
   .facts{gap:10px 18px}
 }
 
-/* ============ Sección clínica ============ */
-.clin{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 42px}
-.clin__i{padding:20px 0;border-top:1px solid var(--line)}
-.clin__i h3{font-size:1.02rem;margin-bottom:7px;display:flex;align-items:baseline;gap:10px}
-.clin__i h3::before{content:"";flex:none;width:7px;height:7px;border-radius:99px;background:var(--accent);transform:translateY(-2px)}
-.clin__i p{font-size:.93rem;padding-left:17px}
-.clin-note{
-  margin-top:40px;padding:26px 28px;background:var(--white);border:1px solid var(--line);
-  border-left:4px solid var(--navy);border-radius:var(--r-sm);box-shadow:var(--sh-1);max-width:80ch;
+/* ============ Por qué importa ============ */
+.tags-lead{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:var(--muted);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.tags li{
+  display:inline-flex;align-items:center;gap:9px;background:var(--white);
+  border:1px solid var(--line);border-radius:99px;padding:10px 18px;
+  font-size:.95rem;font-weight:500;color:var(--ink);box-shadow:var(--sh-1);
 }
-.clin-note p{font-size:.96rem}
-.clin-note p+p{margin-top:13px;color:var(--ink);font-weight:600}
+.tags li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none}
+.punch{
+  margin-top:clamp(32px,4vw,46px);padding:clamp(26px,3.4vw,36px) clamp(26px,3.4vw,40px);
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
+  box-shadow:var(--sh-2);max-width:74ch;
+}
+.punch p{font-size:1rem}
+.punch strong{display:block;margin-top:14px;font-size:clamp(1.12rem,1.9vw,1.32rem);
+  font-weight:700;color:var(--navy);letter-spacing:-.015em;line-height:1.35}
 
 /* ============ Dónde se usa ============ */
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}
@@ -367,54 +372,30 @@ textarea{resize:vertical;min-height:96px}
     </div>
   </section>
 
-  <!-- ===== POR QUÉ SE MIDE ===== -->
+  <!-- ===== POR QUÉ IMPORTA ===== -->
   <section class="sec sec--soft" id="por-que">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Por qué importa</span>
-        <h2>Cuánta orina elimina un paciente es un dato que el médico necesita</h2>
-        <p class="lede">Los riñones sacan del cuerpo los desechos y el líquido que sobra, y mantienen el equilibrio de agua, sales y minerales —sodio, calcio, fósforo, potasio— en la sangre. Cuando ese equilibrio se rompe, los nervios, los músculos y otros tejidos dejan de funcionar bien.</p>
-        <p class="lede">Que el volumen de orina baje o suba puede responder a algo pasajero o a una enfermedad seria, y casi siempre hace falta tratamiento para que el cuadro no empeore. En los casos que siguen, llevar el control de cuánta orina elimina el paciente es prácticamente parte del tratamiento.</p>
+        <h2>Cuánta orina elimina el paciente es parte del tratamiento</h2>
+        <p class="lede">Los riñones mantienen el equilibrio de agua, sales y minerales del cuerpo. Cuando ese equilibrio se altera, el volumen de orina es una de las primeras señales que el médico sigue de cerca.</p>
       </div>
 
-      <div class="clin">
-        <div class="clin__i rv">
-          <h3>Deshidratación</h3>
-          <p>Es la causa más común de que baje el volumen de orina. Pasa cuando el paciente tiene diarrea, fiebre u otra afección y no repone el líquido que pierde: el riñón retiene entonces todo lo que puede.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Obstrucción de las vías urinarias</h3>
-          <p>La orina no consigue salir del riñón. Puede afectar a uno o a los dos, y por lo general baja el volumen. Suele venir con dolores, náuseas, vómitos, inflamación y fiebre.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Cáncer y enfermedad renal crónica</h3>
-          <p>La enfermedad renal crónica, el cáncer y las enfermedades de la sangre se influyen entre sí. El cáncer puede afectar al riñón por lesiones propias o por lo tóxica que resulta la medicación o la radiación.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Diabetes</h3>
-          <p>El azúcar de más en la sangre daña los vasos diminutos que la filtran dentro del riñón. Ese daño no se repara y, si no se trata a tiempo, puede terminar en falla renal.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Presión alta</h3>
-          <p>Es la segunda causa de falla renal: alrededor de una cuarta parte de los casos. Funciona como causa y como síntoma a la vez, porque el riñón es uno de los órganos que ayudan a regular la presión.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Lupus</h3>
-          <p>El lupus es una enfermedad autoinmune: el sistema inmunológico termina atacando células sanas del propio cuerpo. Cuando inflama el riñón, el cuadro se llama nefritis lúpica.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Enfermedad de Berger</h3>
-          <p>También llamada nefropatía por IgA. Daña los filtros diminutos que están dentro de los riñones.</p>
-        </div>
-        <div class="clin__i rv">
-          <h3>Algunos medicamentos</h3>
-          <p>Ciertos remedios bajan el volumen de orina: los antiinflamatorios comunes, varios de los que se usan para la presión alta y algunos antibióticos, como la gentamicina.</p>
-        </div>
-      </div>
+      <p class="tags-lead">Se controla en cuadros como:</p>
+      <ul class="tags">
+        <li>Deshidratación</li>
+        <li>Diabetes</li>
+        <li>Presión alta</li>
+        <li>Enfermedad renal crónica</li>
+        <li>Cáncer</li>
+        <li>Obstrucción urinaria</li>
+        <li>Lupus</li>
+        <li>Efecto de ciertos medicamentos</li>
+      </ul>
 
-      <div class="clin-note">
-        <p>Para esto no hay tratamiento casero: la causa la identifica el médico. Pero en la consulta se pregunta casi siempre lo mismo —cuándo empezó, si fue de golpe, cuánto líquido toma el paciente por día y qué cantidad de orina elimina—.</p>
-        <p>Con URIPEL esa respuesta es un número medido y no un cálculo aproximado.</p>
+      <div class="punch rv">
+        <p>En la consulta preguntan siempre lo mismo: cuánto líquido toma el paciente por día y cuánta orina elimina.</p>
+        <p><strong>Con URIPEL, la respuesta es un número medido y no un cálculo aproximado.</strong></p>
       </div>
     </div>
   </section>
@@ -452,7 +433,7 @@ textarea{resize:vertical;min-height:96px}
       <div class="sec-head">
         <span class="eyebrow">El producto</span>
         <h2>Por qué elegir URIPEL</h2>
-        <p class="lede">Una sola pieza de ABS resistente, sin partes móviles ni repuestos: se coloca, se lee, se vuelca y se lava.</p>
+        <p class="lede">Pieza simple e innovadora: práctica, económica y reutilizable.</p>
       </div>
 
       <div class="benefits">
