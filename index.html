@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>URIPEL | Recolector de muestras para inodoro, reutilizable y con medidor</title>
-<meta name="description" content="URIPEL es un recolector de orina y materia fecal que se apoya en cualquier inodoro estándar. Reutilizable, con medidor graduado integrado y sin insumos descartables. Para instituciones de salud y cuidado domiciliario.">
+<title>URIPEL | Recolector y medidor de orina para inodoro</title>
+<meta name="description" content="URIPEL se apoya en cualquier inodoro y mide cuánta orina elimina el paciente, con escala graduada en ml y oz. Para el control diario en el hospital y en casa. Reutilizable y sin descartables.">
 <link rel="canonical" href="https://www.uripel.com/">
 <meta name="theme-color" content="#25336b">
 
@@ -13,8 +13,8 @@
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="URIPEL">
 <meta property="og:url" content="https://www.uripel.com/">
-<meta property="og:title" content="URIPEL | Recolector de muestras para inodoro">
-<meta property="og:description" content="Recolecta y mide orina o materia fecal en cualquier inodoro estándar. Reutilizable, sin insumos descartables.">
+<meta property="og:title" content="URIPEL | Recolector y medidor de orina para inodoro">
+<meta property="og:description" content="Mide cuánta orina elimina el paciente, en el hospital y en casa. Escala graduada, reutilizable.">
 <meta property="og:image" content="https://www.uripel.com/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -161,7 +161,20 @@ a{color:var(--navy)}
   .facts{gap:10px 18px}
 }
 
-/* ============ Público ============ */
+/* ============ Sección clínica ============ */
+.clin{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 42px}
+.clin__i{padding:20px 0;border-top:1px solid var(--line)}
+.clin__i h3{font-size:1.02rem;margin-bottom:7px;display:flex;align-items:baseline;gap:10px}
+.clin__i h3::before{content:"";flex:none;width:7px;height:7px;border-radius:99px;background:var(--accent);transform:translateY(-2px)}
+.clin__i p{font-size:.93rem;padding-left:17px}
+.clin-note{
+  margin-top:40px;padding:26px 28px;background:var(--white);border:1px solid var(--line);
+  border-left:4px solid var(--navy);border-radius:var(--r-sm);box-shadow:var(--sh-1);max-width:80ch;
+}
+.clin-note p{font-size:.96rem}
+.clin-note p+p{margin-top:13px;color:var(--ink);font-weight:600}
+
+/* ============ Dónde se usa ============ */
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}
 .who__item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:24px 24px 26px;box-shadow:var(--sh-1)}
 .who__ico{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:var(--navy-soft);color:var(--navy);margin-bottom:15px}
@@ -223,7 +236,7 @@ a{color:var(--navy)}
 .specs{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,4vw,46px);align-items:start}
 /* La tabla lleva tono propio: con celdas blancas sobre sección blanca,
    la columna de valores se funde con el fondo. */
-table{width:100%;border-collapse:collapse;background:var(--soft);border:1px solid #d3dbeb;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1)}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid #d3dbeb;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1)}
 th,td{padding:17px 22px;text-align:left;border-bottom:1px solid #dde3f0;font-size:.96rem}
 th{width:38%;font-weight:600;color:var(--ink);background:var(--navy-soft);border-right:1px solid #d3dbeb}
 td{color:var(--body)}
@@ -306,6 +319,7 @@ textarea{resize:vertical;min-height:96px}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#por-que">Por qué medirla</a>
       <a href="#producto">El producto</a>
       <a href="#modo-de-uso">Modo de uso</a>
       <a href="#especificaciones">Especificaciones</a>
@@ -321,17 +335,17 @@ textarea{resize:vertical;min-height:96px}
   <section class="hero">
     <div class="wrap hero__grid">
       <div>
-        <span class="eyebrow">Recolector de muestras para inodoro</span>
-        <h1>La recolección de muestras, resuelta en el inodoro.</h1>
-        <p class="lede">URIPEL es un recipiente recolector de orina y materia fecal que se apoya sobre cualquier inodoro estándar. Permite recolectar y medir la muestra con higiene, sin chatas y sin insumos descartables, tanto en instituciones de salud como en el hogar.</p>
+        <span class="eyebrow">Recolector y medidor para inodoro</span>
+        <h1>Más simple para quien cuida, más digno para el cuidado.</h1>
+        <p class="lede">URIPEL se apoya en cualquier inodoro y trae una escala graduada adentro: mide cuánta orina elimina el paciente y recolecta la muestra que pide el laboratorio. El paciente usa el baño como siempre, en el hospital o en casa.</p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
-          <a class="btn btn--ghost" href="#modo-de-uso">Ver cómo funciona</a>
+          <a class="btn btn--ghost" href="#por-que">Por qué importa medirla</a>
         </div>
         <ul class="facts">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Escala graduada en ml y oz</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> También recolecta muestras</li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Reutilizable con lavado convencional</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Medidor graduado integrado</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Marca registrada Nro 99.974</li>
         </ul>
       </div>
 
@@ -353,90 +367,142 @@ textarea{resize:vertical;min-height:96px}
     </div>
   </section>
 
-  <!-- ===== PÚBLICO ===== -->
-  <section class="sec sec--tight sec--soft" id="publico">
+  <!-- ===== POR QUÉ SE MIDE ===== -->
+  <section class="sec sec--soft" id="por-que">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Para quién es</span>
-        <h2>Un mismo dispositivo, tres escenarios de uso</h2>
+        <span class="eyebrow">Por qué importa</span>
+        <h2>Cuánta orina elimina un paciente es un dato que el médico necesita</h2>
+        <p class="lede">Los riñones sacan del cuerpo los desechos y el líquido que sobra, y mantienen el equilibrio de agua, sales y minerales —sodio, calcio, fósforo, potasio— en la sangre. Cuando ese equilibrio se rompe, los nervios, los músculos y otros tejidos dejan de funcionar bien.</p>
+        <p class="lede">Que el volumen de orina baje o suba puede responder a algo pasajero o a una enfermedad seria, y casi siempre hace falta tratamiento para que el cuadro no empeore. En los casos que siguen, llevar el control de cuánta orina elimina el paciente es prácticamente parte del tratamiento.</p>
+      </div>
+
+      <div class="clin">
+        <div class="clin__i rv">
+          <h3>Deshidratación</h3>
+          <p>Es la causa más común de que baje el volumen de orina. Pasa cuando el paciente tiene diarrea, fiebre u otra afección y no repone el líquido que pierde: el riñón retiene entonces todo lo que puede.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Obstrucción de las vías urinarias</h3>
+          <p>La orina no consigue salir del riñón. Puede afectar a uno o a los dos, y por lo general baja el volumen. Suele venir con dolores, náuseas, vómitos, inflamación y fiebre.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Cáncer y enfermedad renal crónica</h3>
+          <p>La enfermedad renal crónica, el cáncer y las enfermedades de la sangre se influyen entre sí. El cáncer puede afectar al riñón por lesiones propias o por lo tóxica que resulta la medicación o la radiación.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Diabetes</h3>
+          <p>El azúcar de más en la sangre daña los vasos diminutos que la filtran dentro del riñón. Ese daño no se repara y, si no se trata a tiempo, puede terminar en falla renal.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Presión alta</h3>
+          <p>Es la segunda causa de falla renal: alrededor de una cuarta parte de los casos. Funciona como causa y como síntoma a la vez, porque el riñón es uno de los órganos que ayudan a regular la presión.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Lupus</h3>
+          <p>El lupus es una enfermedad autoinmune: el sistema inmunológico termina atacando células sanas del propio cuerpo. Cuando inflama el riñón, el cuadro se llama nefritis lúpica.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Enfermedad de Berger</h3>
+          <p>También llamada nefropatía por IgA. Daña los filtros diminutos que están dentro de los riñones.</p>
+        </div>
+        <div class="clin__i rv">
+          <h3>Algunos medicamentos</h3>
+          <p>Ciertos remedios bajan el volumen de orina: los antiinflamatorios comunes, varios de los que se usan para la presión alta y algunos antibióticos, como la gentamicina.</p>
+        </div>
+      </div>
+
+      <div class="clin-note">
+        <p>Para esto no hay tratamiento casero: la causa la identifica el médico. Pero en la consulta se pregunta casi siempre lo mismo —cuándo empezó, si fue de golpe, cuánto líquido toma el paciente por día y qué cantidad de orina elimina—.</p>
+        <p>Con URIPEL esa respuesta es un número medido y no un cálculo aproximado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DÓNDE SE USA ===== -->
+  <section class="sec sec--tight" id="donde">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Dónde se usa</span>
+        <h2>El mismo control, adentro y afuera del hospital</h2>
       </div>
       <div class="who">
         <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
-          <h3>Instituciones de salud</h3>
-          <p>Hospitales, clínicas, sanatorios y geriátricos que necesitan recolectar y medir diuresis o muestras sin sumar descartables por paciente.</p>
+          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
+          <h3>En la internación</h3>
+          <p>Hospitales, clínicas, sanatorios y geriátricos que llevan el control diario de los pacientes que se movilizan por sus propios medios.</p>
         </div>
         <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
-          <h3>Cuidado domiciliario</h3>
-          <p>Personas en tratamiento, adultos mayores y quienes los acompañan: el estudio se hace en el baño de casa, con autonomía y sin situaciones incómodas.</p>
+          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>En casa</h3>
+          <p>Seguimientos que duran semanas o meses. El paciente anota sus propios valores en el baño de su casa y llega a la consulta con el registro hecho.</p>
         </div>
         <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
-          <h3>Laboratorios y distribuidores</h3>
-          <p>Laboratorios de análisis y droguerías que buscan un recolector reutilizable, apilable y simple de explicarle al paciente.</p>
+          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 15h9"/></svg></div>
+          <h3>Para el laboratorio</h3>
+          <p>Cuando hay que llevar una muestra: se junta en el mismo recipiente y se pasa al frasco por la ranura vertedora, sin contacto ni insumos aparte.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== BENEFICIOS ===== -->
-  <section class="sec" id="producto">
+  <section class="sec sec--soft" id="producto">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">El producto</span>
         <h2>Por qué elegir URIPEL</h2>
-        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
+        <p class="lede">Una sola pieza de ABS resistente, sin partes móviles ni repuestos: se coloca, se lee, se vuelca y se lava.</p>
       </div>
 
       <div class="benefits">
         <article class="bcard rv">
           <img src="img/benefit-1.webp" width="760" height="760" alt="Detalle de la escala graduada en mililitros y onzas moldeada en el interior del recolector." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Medición integrada</h3>
-            <p>La escala graduada en ml y oz viene moldeada en el propio recipiente. Se lee el volumen directamente, sin trasvasar a un jarro medidor aparte.</p>
+            <h3>Se mide ahí mismo</h3>
+            <p>La escala en mililitros y onzas viene moldeada en el recipiente. El valor se lee apenas se recolecta, sin pasar la orina a un jarro medidor y sin calcular a ojo.</p>
           </div>
         </article>
         <article class="bcard rv">
           <img src="img/benefit-2.webp" width="760" height="760" alt="Varias unidades de URIPEL apiladas en la estantería de insumos de un servicio de salud." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Apilable y fácil de almacenar</h3>
-            <p>Las unidades se apilan una sobre otra y ocupan poco lugar en el depósito, el carro de enfermería o el botiquín de casa.</p>
+            <h3>Se apila y ocupa poco</h3>
+            <p>Las unidades se apilan una sobre otra: entran sin problema en el depósito, en el carro de enfermería o en el baño de una casa.</p>
           </div>
         </article>
         <article class="bcard rv">
           <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
           <div class="bcard__body">
-            <h3>Reutilizable</h3>
-            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse. Menos residuos y menos costo por estudio frente al descartable.</p>
+            <h3>Se lava y se vuelve a usar</h3>
+            <p>Agua y jabón entre un uso y el siguiente. En controles que duran semanas, eso es mucho menos descartable por paciente.</p>
           </div>
         </article>
       </div>
 
       <ul class="mini">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas, chatas ni accesorios para funcionar.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y sirve para adultos y chicos.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Orina y materia fecal.</b> Las dos muestras en el mismo recipiente, sin accesorios.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Pasa la muestra al frasco sin derrames ni contacto.</span></li>
       </ul>
     </div>
   </section>
 
   <!-- ===== MODO DE USO ===== -->
-  <section class="sec sec--soft" id="modo-de-uso">
+  <section class="sec" id="modo-de-uso">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Modo de uso</span>
         <h2>Cinco pasos, menos de un minuto</h2>
-        <p class="lede">Tocá cada paso para ver la imagen correspondiente.</p>
+        <p class="lede">Colocarlo, leer el valor y lavarlo lleva menos de un minuto. Tocá cada paso para ver la imagen.</p>
       </div>
 
       <div class="uso">
         <ol class="steps" id="steps">
           <li><button class="step" type="button" data-i="0" aria-current="true"><span class="step__n">1</span><span>Levantá la tapa y la tabla del inodoro.</span></button></li>
-          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá el adaptador URIPEL en el frente del inodoro, bajá la tabla y usalo con normalidad.</span></button></li>
-          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retirá el adaptador con la muestra recolectada y descartá el líquido excedente.</span></button></li>
-          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Volcá la cantidad necesaria en el frasco usando la ranura vertedora.</span></button></li>
-          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavá el adaptador con agua y jabón para el próximo uso.</span></button></li>
+          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá el recipiente URIPEL en el frente del inodoro, bajá la tabla y usalo con normalidad.</span></button></li>
+          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retiralo con lo recolectado, leé la cantidad en la escala graduada y anotala.</span></button></li>
+          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Si hay que llevar muestra al laboratorio, volcala en el frasco con la ranura vertedora.</span></button></li>
+          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavalo con agua y jabón y queda listo para el próximo control.</span></button></li>
         </ol>
 
         <div class="viewer" id="viewer" aria-roledescription="carrusel" aria-label="Pasos de uso">
@@ -456,7 +522,7 @@ textarea{resize:vertical;min-height:96px}
   </section>
 
   <!-- ===== ESPECIFICACIONES ===== -->
-  <section class="sec" id="especificaciones">
+  <section class="sec sec--soft" id="especificaciones">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Ficha técnica</span>
@@ -470,7 +536,8 @@ textarea{resize:vertical;min-height:96px}
               <tr><th scope="row">Medidas</th><td>35 cm × 21,5 cm × 9,5 cm</td></tr>
               <tr><th scope="row">Medición</th><td>Escala graduada en mililitros y onzas moldeada en el recipiente</td></tr>
               <tr><th scope="row">Diseño</th><td>Ranura vertedora integrada para facilitar la manipulación</td></tr>
-              <tr><th scope="row">Uso</th><td>Reutilizable. Lavado con agua y jabón</td></tr>
+              <tr><th scope="row">Para qué sirve</th><td>Recolectar y medir orina o materia fecal en inodoros estándar</td></tr>
+              <tr><th scope="row">Reutilización</th><td>Reutilizable. Lavado con agua y jabón</td></tr>
               <tr><th scope="row">Esterilidad</th><td>Producto NO estéril</td></tr>
               <tr><th scope="row">Presentación</th><td>Unidad individual en bolsa</td></tr>
               <tr><th scope="row">Marca</th><td>URIPEL — marca registrada Nro 99.974</td></tr>
@@ -478,8 +545,8 @@ textarea{resize:vertical;min-height:96px}
           </table>
         </div>
         <div class="aside">
-          <h3>¿Necesitás una cotización?</h3>
-          <p>Escribinos si querés precios por cantidad, condiciones para distribución o más información técnica del producto.</p>
+          <h3>¿Necesitás la ficha técnica?</h3>
+          <p>Escribinos por información técnica, precios por cantidad o condiciones para instituciones de salud.</p>
           <a class="btn btn--light" href="contacto.html" data-modal>Escribir a URIPEL</a>
         </div>
       </div>
@@ -490,7 +557,7 @@ textarea{resize:vertical;min-height:96px}
   <section class="sec cta" id="contacto">
     <div class="wrap">
       <h2>Hablemos de tu caso</h2>
-      <p>Contanos si es para una institución, para uso domiciliario o para distribución y te respondemos con la información que necesites.</p>
+      <p>Contanos si es para una institución de salud, para el control de alguien en casa o para un laboratorio, y te respondemos con lo que necesites.</p>
       <a class="btn btn--light" href="contacto.html" data-modal>Solicitar información</a>
     </div>
   </section>
@@ -501,7 +568,7 @@ textarea{resize:vertical;min-height:96px}
     <div class="ft__top">
       <div>
         <img src="img/logo-white.webp" width="573" height="110" alt="URIPEL">
-        <p>Recipiente recolector de muestras adaptado a inodoros, para instituciones de salud y cuidado domiciliario.</p>
+        <p>Recipiente que se apoya en el inodoro para recolectar y medir orina o materia fecal, en el hospital y en casa.</p>
       </div>
       <div class="ft__links">
         <a href="contacto.html" data-modal>Formulario de contacto</a>
@@ -573,8 +640,8 @@ textarea{resize:vertical;min-height:96px}
   "@context":"https://schema.org",
   "@type":"Product",
   "name":"URIPEL",
-  "category":"Recolector de muestras fisiológicas",
-  "description":"Recipiente recolector de orina y materia fecal adaptado a inodoros estándar. Reutilizable, con escala graduada integrada y ranura vertedora. Para uso hospitalario y domiciliario.",
+  "category":"Recolector y medidor de orina y materia fecal",
+  "description":"Recipiente recolector de orina y materia fecal que se adapta a inodoros estándar. Escala graduada en mililitros y onzas para medir el volumen de cada micción, y ranura vertedora para pasar la muestra al frasco. Uso hospitalario y domiciliario.",
   "image":"https://www.uripel.com/img/og-image.jpg",
   "url":"https://www.uripel.com/",
   "material":"ABS",
