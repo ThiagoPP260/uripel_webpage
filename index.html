@@ -139,7 +139,7 @@ a{color:var(--navy)}
 .hero__head{grid-area:head}
 .hero__body{grid-area:body}
 .shot{grid-area:shot}
-.hero h1{margin-bottom:22px}
+.hero h1{margin-bottom:22px;white-space:nowrap}
 .hero .lede{font-size:clamp(1.04rem,1.7vw,1.19rem)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
 .facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);list-style:none;padding-inline-start:0}
@@ -312,7 +312,7 @@ textarea{resize:vertical;min-height:96px}
 /* ============ Ajustes de celular ============ */
 @media (max-width:700px){
   :root{--sec:clamp(48px,9vw,64px)}
-  .hero h1{font-size:1.95rem}
+  .hero h1{font-size:clamp(1.5rem,7.2vw,1.95rem)}
   .hero{padding-block:36px 44px}
 
   /* Menos alto por tarjeta: la foto pasa a ser más panorámica */
@@ -384,7 +384,7 @@ textarea{resize:vertical;min-height:96px}
       </div>
 
       <div class="hero__body">
-        <p class="lede">URIPEL se apoya en cualquier inodoro y trae una escala graduada adentro: mide cuánta orina elimina el paciente<span class="no-mob"> y recolecta la muestra que pide el laboratorio</span>. El paciente usa el baño como siempre, en el hospital o en casa.</p>
+        <p class="lede">URIPEL es un dispositivo que busca simplificar y devolver la dignidad al control diario de la orina, sin importar la condicion o edad de la persona que cuida su salud.
         <div class="hero__cta">
           <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
           <a class="btn btn--ghost" href="#por-que">Por qué importa medirla</a>
