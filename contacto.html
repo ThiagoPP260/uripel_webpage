@@ -89,13 +89,13 @@ textarea{resize:vertical;min-height:120px}
       <h1>Solicitar información</h1>
       <p class="intro">Completá el formulario y te respondemos por mail. Si es una consulta institucional, contanos la cantidad estimada y el destino para poder cotizarte mejor.</p>
 
-      <!-- El formulario se envía por FormSubmit y llega al mail de URIPEL. -->
-      <form action="https://formsubmit.co/uripelcontacto@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Consulta desde uripel.com">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://www.uripel.com/gracias.html">
-        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <!-- El formulario se envía por Web3Forms y llega al mail de URIPEL. -->
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0809ffcb-10ae-4bc8-a41e-07950481e036">
+        <input type="hidden" name="subject" value="Consulta desde uripel.com">
+        <input type="hidden" name="from_name" value="Web URIPEL">
+        <input type="hidden" name="redirect" value="https://www.uripel.com/gracias.html">
+        <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="row">
           <div class="f">
@@ -104,7 +104,7 @@ textarea{resize:vertical;min-height:120px}
           </div>
           <div class="f">
             <label for="email">Email <span class="req">*</span></label>
-            <input id="email" name="Email" type="email" required autocomplete="email">
+            <input id="email" name="email" type="email" required autocomplete="email">
           </div>
         </div>
         <div class="row">

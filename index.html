@@ -606,7 +606,7 @@ textarea{resize:vertical;min-height:96px}
       </div>
       <div class="f">
         <label for="c-email">Email <span class="req">*</span></label>
-        <input id="c-email" name="Email" type="email" required autocomplete="email">
+        <input id="c-email" name="email" type="email" required autocomplete="email">
       </div>
     </div>
     <div class="row">
@@ -632,7 +632,7 @@ textarea{resize:vertical;min-height:96px}
       <label for="c-msg">Mensaje <span class="req">*</span></label>
       <textarea id="c-msg" name="Mensaje" required placeholder="Contanos qué necesitás: cantidad, plazos, dudas técnicas…"></textarea>
     </div>
-    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn btn--primary" type="submit" id="send" style="width:100%">Enviar consulta</button>
     <p class="form-note">Usamos tus datos únicamente para responder esta consulta.</p>
   </form>
@@ -785,32 +785,30 @@ textarea{resize:vertical;min-height:96px}
   }
   /* Si el navegador no soporta <dialog>, los links siguen a contacto.html */
 
-  /* ---- Envío del formulario ---- */
-  /* El mail se arma en JS para que los bots no lo levanten del HTML.
-     Si activás un alias en FormSubmit, reemplazá ENDPOINT por él. */
-  var MAIL = ['uripelcontacto','gmail.com'].join('@');
-  var ENDPOINT = 'https://formsubmit.co/ajax/' + MAIL;
-  var FALLBACK = 'https://formsubmit.co/' + MAIL;   /* envío clásico, sin AJAX */
+  /* ---- Envío del formulario (Web3Forms → uripelcontacto@gmail.com) ---- */
+  /* La access key de Web3Forms es pública por diseño: solo permite enviar
+     mensajes a la casilla registrada. */
+  var ENDPOINT = 'https://api.web3forms.com/submit';
   var TIMEOUT_MS = 20000;
   var form = document.getElementById('form');
   if (form){
     var msg = document.getElementById('msg'), send = document.getElementById('send');
     var extras = {
-      _subject: 'Consulta desde uripel.com',
-      _template: 'table',
-      _captcha: 'false',
-      _next: 'https://www.uripel.com/gracias.html'
+      access_key: '0809ffcb-10ae-4bc8-a41e-07950481e036',
+      subject: 'Consulta desde uripel.com',
+      from_name: 'Web URIPEL'
     };
     var reset = function(){ send.disabled = false; send.textContent = 'Enviar consulta'; };
 
-    /* Plan B: si FormSubmit no responde por AJAX, se envía como formulario
-       normal (abre FormSubmit y vuelve a gracias.html). */
+    /* Plan B: si la llamada AJAX falla, se envía como formulario normal
+       y Web3Forms redirige a gracias.html. */
     var envioClasico = function(){
       var f = document.createElement('form');
-      f.method = 'POST'; f.action = FALLBACK; f.style.display = 'none';
+      f.method = 'POST'; f.action = ENDPOINT; f.style.display = 'none';
       var add = function(k,v){ var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; f.appendChild(i); };
       Object.keys(extras).forEach(function(k){ add(k, extras[k]); });
-      new FormData(form).forEach(function(v,k){ if (k.charAt(0) !== '_') add(k, v); });
+      add('redirect', 'https://www.uripel.com/gracias.html');
+      new FormData(form).forEach(function(v,k){ if (k !== 'botcheck') add(k, v); });
       document.body.appendChild(f);
       f.submit();
     };
@@ -824,11 +822,11 @@ textarea{resize:vertical;min-height:96px}
         form.reportValidity();
         return;
       }
-      if (form._honey.value){ return; } /* honeypot anti-spam */
+      if (form.botcheck && form.botcheck.value){ return; } /* honeypot anti-spam */
       send.disabled = true; send.textContent = 'Enviando…';
       var data = {};
-      Object.keys(extras).forEach(function(k){ if (k !== '_next') data[k] = extras[k]; });
-      new FormData(form).forEach(function(v,k){ if (k.charAt(0) !== '_') data[k] = v; });
+      Object.keys(extras).forEach(function(k){ data[k] = extras[k]; });
+      new FormData(form).forEach(function(v,k){ if (k !== 'botcheck') data[k] = v; });
 
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
       var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, TIMEOUT_MS);
@@ -844,8 +842,7 @@ textarea{resize:vertical;min-height:96px}
       })
       .then(function(res){
         clearTimeout(timer);
-        var ok = res.ok && (res.j.success === true || res.j.success === 'true');
-        if (!ok){ throw new Error(res.j.message || 'Respuesta inválida'); }
+        if (!(res.ok && res.j.success)){ throw new Error(res.j.message || 'Respuesta inválida'); }
         form.reset();
         msg.className = 'msg ok';
         msg.textContent = '¡Listo! Recibimos tu consulta y te respondemos por mail a la brevedad.';
@@ -853,7 +850,7 @@ textarea{resize:vertical;min-height:96px}
       })
       .catch(function(err){
         clearTimeout(timer);
-        if (window.console) console.warn('FormSubmit AJAX falló, uso envío clásico:', err);
+        if (window.console) console.warn('Envío AJAX falló, uso envío clásico:', err);
         msg.className = 'msg';
         msg.textContent = 'Enviando por vía alternativa…';
         envioClasico();
