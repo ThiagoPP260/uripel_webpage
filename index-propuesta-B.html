@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>URIPEL | Recolector y medidor de orina para inodoro</title>
-<meta name="description" content="URIPEL se apoya en cualquier inodoro y mide cuánta orina elimina el paciente, con escala graduada en ml y oz. Para el control diario en el hospital y en casa. Reutilizable y sin descartables.">
+<title>URIPEL | Recolector de muestras para inodoro, reutilizable y con medidor</title>
+<meta name="description" content="URIPEL es un recolector de orina y materia fecal que se apoya en cualquier inodoro estándar. Reutilizable, con medidor graduado integrado y sin insumos descartables. Para instituciones de salud y cuidado domiciliario.">
 <link rel="canonical" href="https://www.uripel.com/">
 <meta name="theme-color" content="#25336b">
 
@@ -13,8 +13,8 @@
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="URIPEL">
 <meta property="og:url" content="https://www.uripel.com/">
-<meta property="og:title" content="URIPEL | Recolector y medidor de orina para inodoro">
-<meta property="og:description" content="Mide cuánta orina elimina el paciente, en el hospital y en casa. Escala graduada, reutilizable.">
+<meta property="og:title" content="URIPEL | Recolector de muestras para inodoro">
+<meta property="og:description" content="Recolecta y mide orina o materia fecal en cualquier inodoro estándar. Reutilizable, sin insumos descartables.">
 <meta property="og:image" content="https://www.uripel.com/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -71,15 +71,14 @@ a{color:var(--navy)}
 .wrap{width:100%;max-width:1180px;margin:0 auto;padding-inline:var(--pad)}
 .sec{padding-block:var(--sec)}
 .sec--soft{background:var(--soft);border-block:1px solid var(--line)}
-.sec--tight{padding-block:clamp(44px,5.2vw,68px)}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;
   letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;
 }
 .eyebrow::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
 .lede{font-size:clamp(1.02rem,1.6vw,1.14rem);color:var(--body);max-width:62ch}
-.sec-head{margin-bottom:clamp(28px,3.6vw,44px)}
-.sec-head p{margin-top:14px;max-width:66ch}
+.sec-head{max-width:66ch;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head p{margin-top:16px}
 .center{text-align:center;margin-inline:auto}
 
 /* ============ Botones ============ */
@@ -132,14 +131,8 @@ a{color:var(--navy)}
 
 /* ============ Hero ============ */
 .hero{padding-block:clamp(52px,7vw,92px) clamp(52px,7vw,92px);overflow:hidden}
-.hero__grid{
-  display:grid;grid-template-columns:1fr 1.04fr;gap:0 clamp(36px,5vw,60px);align-items:center;
-  grid-template-areas:"head shot" "body shot";
-}
-.hero__head{grid-area:head}
-.hero__body{grid-area:body}
-.shot{grid-area:shot}
-.hero h1{margin-bottom:22px;white-space:nowrap}
+.hero__grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(36px,5vw,64px);align-items:center}
+.hero h1{margin-bottom:22px}
 .hero .lede{font-size:clamp(1.04rem,1.7vw,1.19rem)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
 .facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);list-style:none;padding-inline-start:0}
@@ -147,7 +140,7 @@ a{color:var(--navy)}
 .facts svg{flex:none;color:var(--accent)}
 
 /* Carrusel hero */
-.shot{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);background:var(--soft);aspect-ratio:1/1}
+.shot{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);background:var(--soft);aspect-ratio:4/3}
 .shot__track{position:absolute;inset:0}
 .shot__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease);pointer-events:none}
 .shot__slide.is-on{opacity:1;pointer-events:auto}
@@ -162,54 +155,15 @@ a{color:var(--navy)}
 .dots button{width:8px;height:8px;padding:0;border:none;border-radius:99px;background:#c3cadb;cursor:pointer;transition:all .25s var(--ease)}
 .dots button[aria-current="true"]{background:var(--navy);width:22px}
 @media (max-width:900px){
-  .hero__grid{grid-template-columns:1fr;grid-template-areas:"head" "shot" "body";gap:26px 0}
-  .hero h1{margin-bottom:0}
+  .hero__grid{grid-template-columns:1fr;gap:34px}
   .shot{aspect-ratio:16/11}
   .facts{gap:10px 18px}
 }
 
-/* ============ Por qué importa ============ */
-.tags-lead{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:var(--muted);margin-bottom:16px}
-
-/* Cinta continua: dos pistas idénticas que se persiguen. La segunda es
-   decorativa (aria-hidden) para que el lector de pantalla lea la lista una vez. */
-.ribbon{
-  display:flex;gap:12px;overflow:hidden;padding:4px 0;
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
-  mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
-}
-.ribbon__track{
-  display:flex;flex:none;gap:12px;list-style:none;margin:0;padding:0;
-  animation:ribbon-slide 34s linear infinite;
-}
-.ribbon:hover .ribbon__track,.ribbon:focus-within .ribbon__track{animation-play-state:paused}
-@keyframes ribbon-slide{from{transform:translateX(0)}to{transform:translateX(calc(-100% - 12px))}}
-.ribbon li{
-  display:inline-flex;align-items:center;gap:9px;white-space:nowrap;background:var(--white);
-  border:1px solid var(--line);border-radius:99px;padding:11px 20px;
-  font-size:.95rem;font-weight:500;color:var(--ink);box-shadow:var(--sh-1);
-}
-.ribbon li::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none}
-@media (prefers-reduced-motion:reduce){
-  .ribbon{overflow-x:auto}
-  .ribbon__track{animation:none}
-  .ribbon__track[aria-hidden="true"]{display:none}
-}
-
-.punch{
-  margin-top:clamp(32px,4vw,46px);padding:clamp(26px,3.4vw,36px) clamp(26px,3.4vw,40px);
-  background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);
-  box-shadow:var(--sh-2);max-width:74ch;
-}
-.punch p{font-size:1rem}
-.punch strong{font-weight:700;color:var(--navy)}
-.punch__lead{margin-top:14px;font-size:clamp(1.12rem,1.9vw,1.32rem);
-  font-weight:700;color:var(--navy);letter-spacing:-.015em;line-height:1.35}
-
-/* ============ Dónde se usa ============ */
+/* ============ Público ============ */
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}
-.who__item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:24px 24px 26px;box-shadow:var(--sh-1)}
-.who__ico{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:var(--navy-soft);color:var(--navy);margin-bottom:15px}
+.who__item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:28px 26px 30px;box-shadow:var(--sh-1)}
+.who__ico{width:42px;height:42px;display:grid;place-items:center;border-radius:11px;background:var(--navy-soft);color:var(--navy);margin-bottom:18px}
 .who__item h3{margin-bottom:9px}
 .who__item p{font-size:.95rem}
 
@@ -264,6 +218,43 @@ a{color:var(--navy)}
   .viewer{order:-1}
 }
 
+/* ============ Especificaciones ============ */
+.specs{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,4vw,46px);align-items:start}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-1)}
+th,td{padding:17px 22px;text-align:left;border-bottom:1px solid var(--line);font-size:.96rem}
+th{width:38%;font-weight:600;color:var(--ink);background:var(--soft)}
+tr:last-child th,tr:last-child td{border-bottom:none}
+.note{margin-top:16px;font-size:.86rem;color:var(--muted)}
+.aside{background:var(--navy);color:#fff;border-radius:var(--r-md);padding:30px 28px;box-shadow:var(--sh-2)}
+.aside h3{color:#fff;margin-bottom:12px}
+.aside p{color:#c6cee6;font-size:.95rem;margin-bottom:22px}
+@media (max-width:820px){
+  .specs{grid-template-columns:1fr}
+  table,tbody,tr,th,td{display:block;width:100%}
+  table{border-radius:var(--r-md);padding:6px 0}
+  tr{border-bottom:1px solid var(--line);padding:14px 20px}
+  tr:last-child{border-bottom:none}
+  th{background:none;padding:0 0 3px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border:none}
+  td{padding:0;border:none}
+}
+
+/* ============ FAQ ============ */
+.faq{max-width:820px;margin-inline:auto}
+details{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:10px;box-shadow:var(--sh-1);overflow:hidden}
+details[open]{border-color:#c9d1e4}
+summary{
+  padding:19px 54px 19px 22px;cursor:pointer;font-weight:600;color:var(--ink);
+  font-size:1rem;position:relative;list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:22px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);
+  transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease);
+}
+details[open] summary::after{transform:translateY(-25%) rotate(225deg)}
+details .a{padding:0 22px 22px;font-size:.96rem;max-width:68ch}
+
 /* ============ CTA + footer ============ */
 .cta{background:var(--navy);color:#fff;text-align:center}
 .cta h2{color:#fff;margin-bottom:16px}
@@ -310,43 +301,6 @@ textarea{resize:vertical;min-height:96px}
 .msg.err{display:block;background:#fdeceb;color:#8f2420;border:1px solid #f6cfcc}
 @media (max-width:560px){.row{grid-template-columns:1fr}}
 
-/* ============ Ajustes de celular ============ */
-@media (max-width:700px){
-  :root{--sec:clamp(48px,9vw,64px)}
-  .hero h1{font-size:clamp(1.5rem,7.2vw,1.95rem)}
-  .hero{padding-block:36px 44px}
-
-  /* Menos alto por tarjeta: la foto pasa a ser más panorámica */
-  .bcard img{aspect-ratio:16/10}
-  .benefits{gap:16px}
-  .who{gap:14px}
-  .mini{gap:12px;margin-top:24px;padding-top:24px}
-  .sec-head{margin-bottom:26px}
-  .punch{margin-top:26px}
-
-  /* Áreas táctiles: mínimo 44 px de alto donde se toca */
-  .dots{padding:12px 14px;gap:16px}
-  .dots button{height:12px;position:relative}
-  .dots button::after{content:"";position:absolute;inset:-15px -8px}
-  .dots button[aria-current="true"]{width:24px}
-  .hdr__logo{padding:10px 0}
-  .eyebrow{font-size:.82rem}
-  .shot__cap{font-size:.84rem}
-  .viewer__bar .nav-b{width:44px;height:44px}
-  .ft__links{gap:2px}
-  .ft__links a{padding:11px 0}
-  .facts{margin-top:26px;padding-top:20px;gap:8px 18px}
-}
-
-/* ============ Texto según pantalla ============ */
-/* .no-mob se oculta en celular; .solo-mob aparece solo ahí. Sirven para
-   acortar frases sin sacar el contenido del HTML. */
-.solo-mob{display:none}
-@media (max-width:700px){
-  .no-mob{display:none}
-  .solo-mob{display:inline}
-}
-
 /* ============ Reveal ============ */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -365,9 +319,10 @@ textarea{resize:vertical;min-height:96px}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Principal">
-      <a href="#modo-de-uso">Modo de uso</a>
-      <a href="#por-que">Importancia de medir fluidos</a>
       <a href="#producto">El producto</a>
+      <a href="#modo-de-uso">Modo de uso</a>
+      <a href="#especificaciones">Especificaciones</a>
+      <a href="#preguntas">Preguntas</a>
       <a class="btn btn--primary btn--sm" href="contacto.html" data-modal>Solicitar información</a>
     </nav>
     <a class="btn btn--primary btn--sm hdr__cta-desktop" href="contacto.html" data-modal>Solicitar información</a>
@@ -379,21 +334,18 @@ textarea{resize:vertical;min-height:96px}
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap hero__grid">
-      <div class="hero__head">
-        <span class="eyebrow">Recolector y medidor para inodoro</span>
-        <h1>Facilitando tus cuidados.</h1>
-      </div>
-
-      <div class="hero__body">
-        <p class="lede">URIPEL es un dispositivo que busca simplificar y devolver la dignidad al control diario de la orina, sin importar la condicion o edad de la persona que cuida su salud.
+      <div>
+        <span class="eyebrow">Recolector de muestras para inodoro</span>
+        <h1>La recolección de muestras, resuelta en el inodoro.</h1>
+        <p class="lede">URIPEL es un recipiente recolector de orina y materia fecal que se apoya sobre cualquier inodoro estándar. Permite recolectar y medir la muestra con higiene, sin chatas y sin insumos descartables, tanto en instituciones de salud como en el hogar.</p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
-          <a class="btn btn--ghost" href="#por-que">Importancia de medir fluidos</a>
+          <a class="btn btn--ghost" href="#modo-de-uso">Ver cómo funciona</a>
         </div>
         <ul class="facts">
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Escala graduada en ml y oz</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Adaptable a cualquier inodoro</li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Reutilizable con lavado convencional</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Medidor graduado integrado</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Marca registrada Nro 99.974</li>
         </ul>
       </div>
 
@@ -402,7 +354,7 @@ textarea{resize:vertical;min-height:96px}
           <div class="shot__slide is-on" data-cap="Uso hospitalario y domiciliario">
             <img src="img/hero-1.webp" width="1600" height="994" alt="Profesional de salud con guantes sostiene el recolector URIPEL junto a la cama de un paciente." fetchpriority="high" decoding="async">
           </div>
-          <div class="shot__slide" data-cap="Uso práctico y seguro">
+          <div class="shot__slide" data-cap="Se apoya en inodoros estándar">
             <img src="img/hero-2.webp" width="1600" height="1186" alt="URIPEL colocado en el frente de un inodoro estándar, con la tabla apoyada encima." loading="lazy" decoding="async">
           </div>
           <div class="shot__slide" data-cap="Trasvase directo al frasco">
@@ -415,22 +367,90 @@ textarea{resize:vertical;min-height:96px}
     </div>
   </section>
 
+  <!-- ===== PÚBLICO ===== -->
+  <section class="sec sec--soft" id="publico">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Para quién es</span>
+        <h2>Un mismo dispositivo, tres escenarios de uso</h2>
+      </div>
+      <div class="who">
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
+          <h3>Instituciones de salud</h3>
+          <p>Hospitales, clínicas, sanatorios y geriátricos que necesitan recolectar y medir diuresis o muestras sin sumar descartables por paciente.</p>
+        </div>
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Cuidado domiciliario</h3>
+          <p>Personas en tratamiento, adultos mayores y quienes los acompañan: el estudio se hace en el baño de casa, con autonomía y sin situaciones incómodas.</p>
+        </div>
+        <div class="who__item rv">
+          <div class="who__ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></div>
+          <h3>Laboratorios y distribuidores</h3>
+          <p>Laboratorios de análisis y droguerías que buscan un recolector reutilizable, apilable y simple de explicarle al paciente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFICIOS ===== -->
+  <section class="sec" id="producto">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">El producto</span>
+        <h2>Por qué elegir URIPEL</h2>
+        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
+      </div>
+
+      <div class="benefits">
+        <article class="bcard rv">
+          <img src="img/benefit-1.webp" width="760" height="760" alt="Detalle de la escala graduada en mililitros y onzas moldeada en el interior del recolector." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Medición integrada</h3>
+            <p>La escala graduada en ml y oz viene moldeada en el propio recipiente. Se lee el volumen directamente, sin trasvasar a un jarro medidor aparte.</p>
+          </div>
+        </article>
+        <article class="bcard rv">
+          <img src="img/benefit-2.webp" width="760" height="760" alt="Varias unidades de URIPEL apiladas en la estantería de insumos de un servicio de salud." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Apilable y fácil de almacenar</h3>
+            <p>Las unidades se apilan una sobre otra y ocupan poco lugar en el depósito, el carro de enfermería o el botiquín de casa.</p>
+          </div>
+        </article>
+        <article class="bcard rv">
+          <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
+          <div class="bcard__body">
+            <h3>Reutilizable</h3>
+            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse. Menos residuos y menos costo por estudio frente al descartable.</p>
+          </div>
+        </article>
+      </div>
+
+      <ul class="mini">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas, chatas ni accesorios para funcionar.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ===== MODO DE USO ===== -->
-  <section class="sec" id="modo-de-uso">
+  <section class="sec sec--soft" id="modo-de-uso">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Modo de uso</span>
         <h2>Cinco pasos, menos de un minuto</h2>
-        <p class="lede">Colocarlo, leer el valor y lavarlo lleva menos de un minuto.<span class="no-mob"> Tocá cada paso para ver la imagen.</span></p>
+        <p class="lede">Tocá cada paso para ver la imagen correspondiente.</p>
       </div>
 
       <div class="uso">
         <ol class="steps" id="steps">
           <li><button class="step" type="button" data-i="0" aria-current="true"><span class="step__n">1</span><span>Levantá la tapa y la tabla del inodoro.</span></button></li>
-          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá el recipiente URIPEL en el frente del inodoro, bajá la tabla y usalo con normalidad.</span></button></li>
-          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retiralo con lo recolectado, leé la cantidad en la escala graduada y anotala.</span></button></li>
-          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Si hay que llevar muestra al laboratorio, volcala en el frasco con la ranura vertedora.</span></button></li>
-          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavalo con agua y jabón y queda listo para el próximo control.</span></button></li>
+          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá el adaptador URIPEL en el frente del inodoro, bajá la tabla y usalo con normalidad.</span></button></li>
+          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retirá el adaptador con la muestra recolectada y descartá el líquido excedente.</span></button></li>
+          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Volcá la cantidad necesaria en el frasco usando la ranura vertedora.</span></button></li>
+          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavá el adaptador con agua y jabón para el próximo uso.</span></button></li>
         </ol>
 
         <div class="viewer" id="viewer" aria-roledescription="carrusel" aria-label="Pasos de uso">
@@ -449,111 +469,75 @@ textarea{resize:vertical;min-height:96px}
     </div>
   </section>
 
-  <!-- ===== POR QUÉ IMPORTA ===== -->
-  <section class="sec sec--soft" id="por-que">
+  <!-- ===== ESPECIFICACIONES ===== -->
+  <section class="sec" id="especificaciones">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Por qué importa</span>
-        <h2>Controlar es parte del tratamiento. Hacerlo sencillo también.</h2>
-        <p class="lede"><span class="no-mob">Los riñones mantienen el equilibrio de agua, sales y minerales del cuerpo, y la</span><span class="solo-mob">La</span> orina es una de las primeras señales que el médico sigue de cerca. Por eso muchos tratamientos piden llevar la cuenta todos los días, una rutina tediosa<span class="no-mob"> que suele resolverse con recipientes improvisados y cálculos a ojo</span>.</p>
+        <span class="eyebrow">Ficha técnica</span>
+        <h2>Especificaciones</h2>
       </div>
-
-      <p class="tags-lead">Se controla <span class="no-mob">tanto </span>en cuadros frecuentes<span class="no-mob"> como en los poco frecuentes</span>:</p>
-      <div class="ribbon" role="group" aria-label="Cuadros en los que se controla el volumen de orina">
-        <ul class="ribbon__track">
-          <li>Deshidratación</li>
-          <li>Diabetes</li>
-          <li>Presión alta</li>
-          <li>Enfermedad renal crónica</li>
-          <li>Cáncer</li>
-          <li>Obstrucción urinaria</li>
-          <li>Lupus</li>
-          <li>Efecto de ciertos medicamentos</li>
-        </ul>
-        <ul class="ribbon__track" aria-hidden="true">
-          <li>Deshidratación</li>
-          <li>Diabetes</li>
-          <li>Presión alta</li>
-          <li>Enfermedad renal crónica</li>
-          <li>Cáncer</li>
-          <li>Obstrucción urinaria</li>
-          <li>Lupus</li>
-          <li>Efecto de ciertos medicamentos</li>
-        </ul>
-      </div>
-
-      <div class="punch rv">
-        <p>Ese control diario suele ser la parte <strong>más incómoda</strong> del tratamiento<span class="no-mob">: para el paciente, que siente que <strong>pierde intimidad</strong>, y para <strong>quien lo acompaña</strong>, que tiene que resolverlo todos los días</span>.</p>
-        <p class="punch__lead">URIPEL lo vuelve un gesto simple.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== DÓNDE SE USA ===== -->
-  <section class="sec sec--tight" id="donde">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Dónde se usa</span>
-        <h2>El mismo control, adentro y afuera del hospital</h2>
-      </div>
-      <div class="who">
-        <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
-          <h3>En la internación</h3>
-          <p>Hospitales, clínicas, sanatorios y geriátricos que llevan el control diario de los pacientes<span class="no-mob"> que se movilizan por sus propios medios</span>.</p>
+      <div class="specs">
+        <div>
+          <table>
+            <tbody>
+              <tr><th scope="row">Material</th><td>ABS (acrilonitrilo butadieno estireno) de alta resistencia</td></tr>
+              <tr><th scope="row">Medidas</th><td>35 cm × 21,5 cm × 9,5 cm</td></tr>
+              <tr><th scope="row">Medición</th><td>Escala graduada en mililitros y onzas moldeada en el recipiente</td></tr>
+              <tr><th scope="row">Diseño</th><td>Ranura vertedora integrada para facilitar la manipulación</td></tr>
+              <tr><th scope="row">Uso</th><td>Reutilizable. Lavado con agua y jabón</td></tr>
+              <tr><th scope="row">Esterilidad</th><td>Producto NO estéril</td></tr>
+              <tr><th scope="row">Presentación</th><td>Unidad individual en bolsa</td></tr>
+              <tr><th scope="row">Marca</th><td>URIPEL — marca registrada Nro 99.974</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Producto no estéril. Si el estudio requiere una muestra estéril, seguí el protocolo indicado por el profesional o el laboratorio.</p>
         </div>
-        <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
-          <h3>En casa</h3>
-          <p><span class="no-mob">Seguimientos que duran semanas o meses. </span>El paciente anota sus propios valores en el baño de su casa y llega a la consulta con el registro hecho.</p>
-        </div>
-        <div class="who__item rv">
-          <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 15h9"/></svg></div>
-          <h3>Para el laboratorio</h3>
-          <p>Cuando hay que llevar una muestra: se junta en el mismo recipiente y se pasa al frasco por la ranura vertedora<span class="no-mob">, sin contacto ni insumos aparte</span>.</p>
+        <div class="aside">
+          <h3>¿Necesitás una cotización?</h3>
+          <p>Escribinos si querés precios por cantidad, condiciones para distribución o más información técnica del producto.</p>
+          <a class="btn btn--light" href="contacto.html" data-modal>Escribir a URIPEL</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== BENEFICIOS ===== -->
-  <section class="sec sec--soft" id="producto">
+  <!-- ===== FAQ ===== -->
+  <section class="sec sec--soft" id="preguntas">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">El producto</span>
-        <h2>Por qué elegir URIPEL</h2>
-        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
+      <div class="sec-head center" style="text-align:center">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Lo que más nos consultan</h2>
       </div>
-
-      <div class="benefits">
-        <article class="bcard rv">
-          <img src="img/benefit-1.webp" width="760" height="760" alt="Detalle de la escala graduada en mililitros y onzas moldeada en el interior del recolector." loading="lazy" decoding="async">
-          <div class="bcard__body">
-            <h3>Medición integrada</h3>
-            <p><span class="no-mob">La escala graduada en ml y oz viene moldeada en el propio recipiente. </span>Se lee el volumen directamente, sin trasvasar a un jarro medidor aparte.</p>
-          </div>
-        </article>
-        <article class="bcard rv">
-          <img src="img/benefit-2.webp" width="760" height="760" alt="Varias unidades de URIPEL apiladas en la estantería de insumos de un servicio de salud." loading="lazy" decoding="async">
-          <div class="bcard__body">
-            <h3>Fácil de almacenar</h3>
-            <p>Las unidades se apilan una sobre otra y ocupan poco lugar<span class="no-mob"> en el depósito, el carro de enfermería o el botiquín de casa</span>.</p>
-          </div>
-        </article>
-        <article class="bcard rv">
-          <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
-          <div class="bcard__body">
-            <h3>Reutilizable</h3>
-            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse.<span class="no-mob"> Menos residuos y menos costo por estudio frente al descartable.</span></p>
-          </div>
-        </article>
+      <div class="faq">
+        <details>
+          <summary>¿Sirve para cualquier inodoro?</summary>
+          <div class="a">Está diseñado para apoyarse en el frente de inodoros estándar, que son la gran mayoría de los domiciliarios e institucionales. Si tenés dudas con un modelo en particular, escribinos con una foto y te respondemos.</div>
+        </details>
+        <details>
+          <summary>¿Se puede recolectar orina y materia fecal?</summary>
+          <div class="a">Sí. URIPEL está pensado para la recolección de muestras fisiológicas, tanto de orina como de materia fecal.</div>
+        </details>
+        <details>
+          <summary>¿Cómo se limpia y cuántas veces se puede usar?</summary>
+          <div class="a">Se lava con agua y jabón como cualquier utensilio, con lavado convencional. Está fabricado en ABS de alta resistencia justamente para ser reutilizado.</div>
+        </details>
+        <details>
+          <summary>¿Es un producto estéril?</summary>
+          <div class="a">No. URIPEL se comercializa como producto NO estéril. Para estudios que exigen muestra estéril, seguí las indicaciones del profesional o del laboratorio que solicitó el análisis.</div>
+        </details>
+        <details>
+          <summary>¿Lo pueden usar chicos?</summary>
+          <div class="a">Sí, el diseño es apto tanto para adultos como para niños, siempre con la supervisión que corresponda en cada caso.</div>
+        </details>
+        <details>
+          <summary>¿Cómo mido el volumen recolectado?</summary>
+          <div class="a">El recipiente trae una escala graduada en mililitros y onzas moldeada en el interior, así que se lee directamente. Si necesitás pasar la muestra a un frasco, la ranura vertedora permite volcarla sin derrames.</div>
+        </details>
+        <details>
+          <summary>¿Venden por unidad o al por mayor?</summary>
+          <div class="a">Atendemos consultas tanto de particulares como de instituciones de salud y distribuidores. Contanos qué cantidad necesitás en el formulario de contacto y te pasamos las condiciones.</div>
+        </details>
       </div>
-
-      <ul class="mini">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas ni accesorios para funcionar.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
-      </ul>
     </div>
   </section>
 
@@ -561,7 +545,7 @@ textarea{resize:vertical;min-height:96px}
   <section class="sec cta" id="contacto">
     <div class="wrap">
       <h2>Hablemos de tu caso</h2>
-      <p>Contanos si es para una institución de salud, para el control de alguien en casa o para un laboratorio, y te respondemos con lo que necesites.</p>
+      <p>Contanos si es para una institución, para uso domiciliario o para distribución y te respondemos con la información que necesites.</p>
       <a class="btn btn--light" href="contacto.html" data-modal>Solicitar información</a>
     </div>
   </section>
@@ -572,15 +556,18 @@ textarea{resize:vertical;min-height:96px}
     <div class="ft__top">
       <div>
         <img src="img/logo-white.webp" width="573" height="110" alt="URIPEL">
-        <p>Recipiente que se apoya en el inodoro para recolectar y medir orina o materia fecal, en el hospital y en casa.</p>
+        <p>Recipiente recolector de muestras adaptado a inodoros, para instituciones de salud y cuidado domiciliario.</p>
       </div>
       <div class="ft__links">
         <a href="contacto.html" data-modal>Formulario de contacto</a>
         <a href="#modo-de-uso">Modo de uso</a>
+        <a href="#especificaciones">Especificaciones técnicas</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
       </div>
     </div>
     <div class="ft__legal">
       <span>© <span id="yr">2026</span> URIPEL. Marca registrada Nro 99.974.</span>
+      <span>Producto no estéril. No reemplaza la indicación de un profesional de la salud.</span>
     </div>
   </div>
 </footer>
@@ -624,6 +611,7 @@ textarea{resize:vertical;min-height:96px}
       <select id="c-motivo" name="Motivo">
         <option>Compra para una institución de salud</option>
         <option>Uso domiciliario / particular</option>
+        <option>Distribución o reventa</option>
         <option>Información técnica</option>
         <option>Otro</option>
       </select>
@@ -643,8 +631,8 @@ textarea{resize:vertical;min-height:96px}
   "@context":"https://schema.org",
   "@type":"Product",
   "name":"URIPEL",
-  "category":"Recolector y medidor de orina y materia fecal",
-  "description":"Recipiente recolector de orina y materia fecal que se adapta a inodoros estándar. Escala graduada en mililitros y onzas para medir el volumen de cada micción, y ranura vertedora para pasar la muestra al frasco. Uso hospitalario y domiciliario.",
+  "category":"Recolector de muestras fisiológicas",
+  "description":"Recipiente recolector de orina y materia fecal adaptado a inodoros estándar. Reutilizable, con escala graduada integrada y ranura vertedora. Para uso hospitalario y domiciliario.",
   "image":"https://www.uripel.com/img/og-image.jpg",
   "url":"https://www.uripel.com/",
   "material":"ABS",
@@ -788,33 +776,10 @@ textarea{resize:vertical;min-height:96px}
   /* ---- Envío del formulario ---- */
   /* El mail se arma en JS para que los bots no lo levanten del HTML.
      Si activás un alias en FormSubmit, reemplazá ENDPOINT por él. */
-  var MAIL = ['uripelcontacto','gmail.com'].join('@');
-  var ENDPOINT = 'https://formsubmit.co/ajax/' + MAIL;
-  var FALLBACK = 'https://formsubmit.co/' + MAIL;   /* envío clásico, sin AJAX */
-  var TIMEOUT_MS = 20000;
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + ['uripelcontacto','gmail.com'].join('@');
   var form = document.getElementById('form');
   if (form){
     var msg = document.getElementById('msg'), send = document.getElementById('send');
-    var extras = {
-      _subject: 'Consulta desde uripel.com',
-      _template: 'table',
-      _captcha: 'false',
-      _next: 'https://www.uripel.com/gracias.html'
-    };
-    var reset = function(){ send.disabled = false; send.textContent = 'Enviar consulta'; };
-
-    /* Plan B: si FormSubmit no responde por AJAX, se envía como formulario
-       normal (abre FormSubmit y vuelve a gracias.html). */
-    var envioClasico = function(){
-      var f = document.createElement('form');
-      f.method = 'POST'; f.action = FALLBACK; f.style.display = 'none';
-      var add = function(k,v){ var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; f.appendChild(i); };
-      Object.keys(extras).forEach(function(k){ add(k, extras[k]); });
-      new FormData(form).forEach(function(v,k){ if (k.charAt(0) !== '_') add(k, v); });
-      document.body.appendChild(f);
-      f.submit();
-    };
-
     form.addEventListener('submit', function(e){
       e.preventDefault();
       msg.className = 'msg'; msg.textContent = '';
@@ -826,38 +791,28 @@ textarea{resize:vertical;min-height:96px}
       }
       if (form._honey.value){ return; } /* honeypot anti-spam */
       send.disabled = true; send.textContent = 'Enviando…';
-      var data = {};
-      Object.keys(extras).forEach(function(k){ if (k !== '_next') data[k] = extras[k]; });
+      var data = {
+        _subject: 'Consulta desde uripel.com',
+        _template: 'table',
+        _captcha: 'false'
+      };
       new FormData(form).forEach(function(v,k){ if (k.charAt(0) !== '_') data[k] = v; });
-
-      var ctrl = ('AbortController' in window) ? new AbortController() : null;
-      var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, TIMEOUT_MS);
-
       fetch(ENDPOINT, {
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body: JSON.stringify(data),
-        signal: ctrl ? ctrl.signal : undefined
+        body: JSON.stringify(data)
       })
-      .then(function(r){
-        return r.json().catch(function(){ return {}; }).then(function(j){ return {ok:r.ok, j:j}; });
-      })
-      .then(function(res){
-        clearTimeout(timer);
-        var ok = res.ok && (res.j.success === true || res.j.success === 'true');
-        if (!ok){ throw new Error(res.j.message || 'Respuesta inválida'); }
+      .then(function(r){ return r.json(); })
+      .then(function(){
         form.reset();
         msg.className = 'msg ok';
         msg.textContent = '¡Listo! Recibimos tu consulta y te respondemos por mail a la brevedad.';
-        reset();
       })
-      .catch(function(err){
-        clearTimeout(timer);
-        if (window.console) console.warn('FormSubmit AJAX falló, uso envío clásico:', err);
-        msg.className = 'msg';
-        msg.textContent = 'Enviando por vía alternativa…';
-        envioClasico();
-      });
+      .catch(function(){
+        msg.className = 'msg err';
+        msg.textContent = 'No pudimos enviar el mensaje. Probá de nuevo en un momento.';
+      })
+      .finally(function(){ send.disabled = false; send.textContent = 'Enviar consulta'; });
     });
   }
 
