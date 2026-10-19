@@ -65,6 +65,17 @@ textarea{resize:vertical;min-height:120px}
 .side svg{flex:none;color:var(--accent);margin-top:4px}
 .shot{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-2)}
 .ft{background:var(--navy-dark);color:#8b96b6;padding-block:26px;font-size:.82rem;text-align:center}
+
+/* ============ Facebook + burbuja de WhatsApp ============ */
+.ft__fb{display:inline-flex;align-items:center;gap:8px}
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:90;
+  width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(10,16,32,.28);transition:transform .2s,box-shadow .2s}
+.wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(10,16,32,.34)}
+.wa:focus-visible{outline:3px solid #25336b;outline-offset:3px}
+@media print{.wa{display:none}}
+@media (max-width:700px){body.has-wa .ft{padding-bottom:96px}}
+.ft__social{margin:0 0 12px}.ft__social a{color:#fff;text-decoration:none;font-weight:500;font-size:.9rem}.ft__social a:hover{text-decoration:underline}
 @media (max-width:820px){.grid{grid-template-columns:1fr}.side{order:-1}.shot{display:none}}
 @media (max-width:560px){.row{grid-template-columns:1fr}}
 </style>
@@ -154,8 +165,34 @@ textarea{resize:vertical;min-height:120px}
 </main>
 
 <footer class="ft">
-  <div class="wrap">© <span id="yr">2026</span> URIPEL. Marca registrada Nro 99.974.</div>
+  <div class="wrap"><p class="ft__social"><a class="ft__fb" href="https://www.facebook.com/profile.php?id=61595004490372" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3z"/></svg><span>Facebook</span></a></p>© <span id="yr">2026</span> URIPEL. Marca registrada Nro 99.974.</div>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+/* ---- Burbuja de WhatsApp ----
+   Seguridad: el número NO se escribe como texto en la página.
+   Opción recomendada: pegar en WA_LINK el "enlace corto" de WhatsApp Business
+   (Herramientas para la empresa > Enlace corto), que no muestra el número.
+   Alternativa: dejar WA_LINK vacío y cargar el número partido en WA_PARTES;
+   el link se arma recién al hacer clic. Si ambos quedan vacíos, la burbuja no aparece. */
+(function(){
+  var WA_LINK = 'https://wa.me/message/TBXWFVTRDRKPC1';            /* ej.: 'https://wa.me/message/ABC123XYZ' */
+  var WA_PARTES = [];          /* ej.: ['54','9','11','1234','5678'] */
+  var WA_TEXTO = 'Hola, vengo de uripel.com y quiero hacer una consulta.';
+  if (!WA_LINK && !WA_PARTES.length) return;
+  var b = document.createElement('button');
+  b.type = 'button'; b.className = 'wa';
+  b.setAttribute('aria-label', 'Escribinos por WhatsApp');
+  b.title = 'Escribinos por WhatsApp';
+  b.innerHTML = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.6c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.4 1.9 2.5 2.5l.6-.5c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.6.4-3.2-.4-1.6-.9-2.9-2.2-3.7-3.7-.5-1.4-.4-2.4-.1-2.9z" fill="currentColor" stroke="none"/></svg>';
+  b.addEventListener('click', function(){
+    var url = WA_LINK || ('https://wa.me/' + WA_PARTES.join('') + '?text=' + encodeURIComponent(WA_TEXTO));
+    var w = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!w) location.href = url;
+  });
+  document.body.appendChild(b);
+  document.body.classList.add('has-wa');
+})();
+</script>
 </body>
 </html>
