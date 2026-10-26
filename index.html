@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>URIPEL | Recolector y medidor de orina para inodoro</title>
-<meta name="description" content="URIPEL se apoya en cualquier inodoro y mide cuánta orina elimina el paciente, con escala graduada en ml y oz. Para el control diario en el hospital y en casa. Reutilizable y sin descartables.">
+<meta name="description" content="Recolectá y medí el volumen de orina con URIPEL. Un recipiente para inodoro con escala graduada y ranura vertedora, para facilitar el cuidado diario en casa y en instituciones de salud.">
 <link rel="canonical" href="https://www.uripel.com/">
 <meta name="theme-color" content="#25336b">
 
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="URIPEL">
 <meta property="og:url" content="https://www.uripel.com/">
 <meta property="og:title" content="URIPEL | Recolector y medidor de orina para inodoro">
-<meta property="og:description" content="Mide cuánta orina elimina el paciente, en el hospital y en casa. Escala graduada, reutilizable.">
+<meta property="og:description" content="Recolectar y medir orina, más simple. Con escala graduada y ranura vertedora para facilitar el cuidado diario.">
 <meta property="og:image" content="https://www.uripel.com/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -139,7 +139,7 @@ a{color:var(--navy)}
 .hero__head{grid-area:head}
 .hero__body{grid-area:body}
 .shot{grid-area:shot}
-.hero h1{margin-bottom:22px;white-space:nowrap}
+.hero h1{margin-bottom:22px;max-width:18ch;text-wrap:balance}
 .hero .lede{font-size:clamp(1.04rem,1.7vw,1.19rem)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
 .facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line);list-style:none;padding-inline-start:0}
@@ -362,6 +362,16 @@ textarea{resize:vertical;min-height:96px}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+/* Claridad y lectura */
+section[id]{scroll-margin-top:92px}
+.hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)}
+.btn{white-space:normal;line-height:1.3;text-align:center}
+.hdr .btn{max-width:220px}
+.faq{max-width:850px;display:grid;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--white);padding:20px 24px}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.faq details p{margin-top:14px;font-size:.96rem;max-width:72ch}
+@media(max-width:900px){.hero__grid{grid-template-columns:minmax(0,1fr)}.hdr .nav .btn{max-width:none}}
 </style>
 </head>
 <body>
@@ -377,11 +387,11 @@ textarea{resize:vertical;min-height:96px}
     </button>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#modo-de-uso">Modo de uso</a>
-      <a href="#por-que">Importancia de medir fluidos</a>
+      <a href="#por-que">El control diario</a>
       <a href="#producto">El producto</a>
-      <a class="btn btn--primary btn--sm" href="contacto.html" data-modal>Solicitar información</a>
+      <a class="btn btn--primary btn--sm" href="contacto.html" data-modal>Consultar precio y disponibilidad</a>
     </nav>
-    <a class="btn btn--primary btn--sm hdr__cta-desktop" href="contacto.html" data-modal>Solicitar información</a>
+    <a class="btn btn--primary btn--sm hdr__cta-desktop" href="contacto.html" data-modal>Consultas</a>
   </div>
 </header>
 
@@ -391,20 +401,20 @@ textarea{resize:vertical;min-height:96px}
   <section class="hero">
     <div class="wrap hero__grid">
       <div class="hero__head">
-        <span class="eyebrow">Recolector y medidor para inodoro</span>
-        <h1>Facilitando tus cuidados.</h1>
+        <span class="eyebrow">Recolector y medidor de orina</span>
+        <h1>Cuidar, un poco más simple.</h1>
       </div>
 
       <div class="hero__body">
-        <p class="lede">URIPEL es un dispositivo que busca simplificar y devolver la dignidad al control diario, sin importar la condicion o edad de la persona que cuida su salud.
+        <p class="lede">URIPEL se apoya en el inodoro para recolectar y medir el volumen de orina en un mismo recipiente. Una forma práctica de acompañar el control diario, con más comodidad para la persona y para quien la cuida.</p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="contacto.html" data-modal>Solicitar información</a>
-          <a class="btn btn--ghost" href="#por-que">Importancia de medir fluidos</a>
+          <a class="btn btn--primary" href="contacto.html" data-modal>Consultar precio y disponibilidad</a>
+          <a class="btn btn--ghost" href="#modo-de-uso">Ver cómo se usa</a>
         </div>
         <ul class="facts">
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Escala graduada en ml y oz</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Adaptable a cualquier inodoro</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Reutilizable con lavado convencional</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Para inodoros estándar</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Diseño reutilizable</li>
         </ul>
       </div>
 
@@ -413,7 +423,7 @@ textarea{resize:vertical;min-height:96px}
           <div class="shot__slide is-on" data-cap="Uso hospitalario y domiciliario">
             <img src="img/hero-1.webp" width="1600" height="994" alt="Profesional de salud con guantes sostiene el recolector URIPEL junto a la cama de un paciente." fetchpriority="high" decoding="async">
           </div>
-          <div class="shot__slide" data-cap="Uso práctico y seguro">
+          <div class="shot__slide" data-cap="Se coloca sobre el inodoro">
             <img src="img/hero-2.webp" width="1600" height="1186" alt="URIPEL colocado en el frente de un inodoro estándar, con la tabla apoyada encima." loading="lazy" decoding="async">
           </div>
           <div class="shot__slide" data-cap="Trasvase directo al frasco">
@@ -431,17 +441,17 @@ textarea{resize:vertical;min-height:96px}
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Modo de uso</span>
-        <h2>Cinco pasos, menos de un minuto</h2>
-        <p class="lede">Colocarlo. Leer el valor y recoger. Lavarlo. Todo en menos de un minutos.<span class="no-mob"> Tocá cada paso para ver la imagen.</span></p>
+        <h2>Una rutina simple, paso a paso</h2>
+        <p class="lede">Colocá, recolectá y leé el volumen. Después, vaciá y limpiá el recipiente.<span class="no-mob"> Tocá cada paso para ver la imagen.</span></p>
       </div>
 
       <div class="uso">
         <ol class="steps" id="steps">
           <li><button class="step" type="button" data-i="0" aria-current="true"><span class="step__n">1</span><span>Levantá la tapa y la tabla del inodoro.</span></button></li>
-          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá tu dispositivo Uripel en el inodoro, bajá la tabla y usar con normalidad.</span></button></li>
-          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retirar lo recolectado, leé la cantidad en la escala graduada y anotala.</span></button></li>
-          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Utilizar la ranura vertedora para almacenar la muestra con comodidad.</span></button></li>
-          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Lavar con agua y jabón.</span></button></li>
+          <li><button class="step" type="button" data-i="1"><span class="step__n">2</span><span>Apoyá URIPEL sobre el inodoro. Verificá que quede estable, bajá la tabla y utilizalo.</span></button></li>
+          <li><button class="step" type="button" data-i="2"><span class="step__n">3</span><span>Retirá URIPEL con cuidado, apoyalo sobre una superficie nivelada y leé el volumen en la escala. Anotá el valor.</span></button></li>
+          <li><button class="step" type="button" data-i="3"><span class="step__n">4</span><span>Vaciá el recipiente con la ranura vertedora. Si necesitás conservar una muestra, confirmá antes el método de recolección con el laboratorio.</span></button></li>
+          <li><button class="step" type="button" data-i="4"><span class="step__n">5</span><span>Limpiá el recipiente después de usarlo según las instrucciones del producto. En instituciones, seguí el protocolo del servicio.</span></button></li>
         </ol>
 
         <div class="viewer" id="viewer" aria-roledescription="carrusel" aria-label="Pasos de uso">
@@ -460,43 +470,20 @@ textarea{resize:vertical;min-height:96px}
     </div>
   </section>
 
-  <!-- ===== POR QUÉ IMPORTA ===== -->
+  <!-- ===== EL CONTROL DIARIO ===== -->
   <section class="sec sec--soft" id="por-que">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Por qué importa</span>
-        <h2>Controlar es parte del tratamiento. Hacerlo sencillo también.</h2>
-        <p class="lede"><span class="no-mob">Los riñones mantienen el equilibrio de agua, sales y minerales del cuerpo. La</span><span class="solo-mob">La</span> orina es una de las primeras señales que el médico sigue de cerca. Por eso muchos tratamientos piden llevar la cuenta todos los días, una rutina tediosa<span class="no-mob"> que suele resolverse con recipientes improvisados y cálculos a ojo</span>.</p>
+        <span class="eyebrow">El control diario</span>
+        <h2>Cuando hay que medir, que sea más fácil.</h2>
+        <p class="lede">Si el profesional de salud te indicó registrar el volumen de orina, URIPEL ayuda a incorporar esa tarea a la rutina: recolectar en el inodoro, leer la escala y anotar el resultado.</p>
       </div>
-
-      <p class="tags-lead">Se controla <span class="no-mob">tanto </span>en cuadros frecuentes<span class="no-mob"> como en los poco frecuentes</span>:</p>
-      <div class="ribbon" role="group" aria-label="Cuadros en los que se controla el volumen de orina">
-        <ul class="ribbon__track">
-          <li>Deshidratación</li>
-          <li>Diabetes</li>
-          <li>Presión alta</li>
-          <li>Enfermedad renal crónica</li>
-          <li>Cáncer</li>
-          <li>Obstrucción urinaria</li>
-          <li>Lupus</li>
-          <li>Efecto de ciertos medicamentos</li>
-        </ul>
-        <ul class="ribbon__track" aria-hidden="true">
-          <li>Deshidratación</li>
-          <li>Diabetes</li>
-          <li>Presión alta</li>
-          <li>Enfermedad renal crónica</li>
-          <li>Cáncer</li>
-          <li>Obstrucción urinaria</li>
-          <li>Lupus</li>
-          <li>Efecto de ciertos medicamentos</li>
-        </ul>
+      <div class="who">
+        <article class="who__item rv"><h3>Más comodidad</h3><p>Un recipiente que se coloca sobre el inodoro para facilitar la recolección durante el uso del baño.</p></article>
+        <article class="who__item rv"><h3>Lectura a mano</h3><p>La escala integrada permite consultar el volumen recolectado sin pasarlo a otro medidor.</p></article>
+        <article class="who__item rv"><h3>Una rutina compartida</h3><p>Una ayuda práctica para la persona que lleva el registro y para quien la acompaña en el cuidado diario.</p></article>
       </div>
-
-      <div class="punch rv">
-        <p>Ese control diario suele ser la parte <strong>más incómoda</strong> del tratamiento<span class="no-mob">: para el paciente, que siente que <strong>pierde intimidad</strong>, y para <strong>quien lo acompaña</strong>, que tiene que resolverlo todos los días</span>.</p>
-        <p class="punch__lead">URIPEL lo vuelve un gesto simple.</p>
-      </div>
+      <div class="punch rv"><p>El profesional indica <strong>qué registrar y durante cuánto tiempo</strong>. URIPEL facilita la recolección y la lectura del volumen.</p><p class="punch__lead">Menos complicaciones en cada cuidado.</p></div>
     </div>
   </section>
 
@@ -505,23 +492,23 @@ textarea{resize:vertical;min-height:96px}
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Dónde se usa</span>
-        <h2>El mismo control adentro y afuera del hospital</h2>
+        <h2>Para acompañar el cuidado, en casa y en instituciones</h2>
       </div>
       <div class="who">
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></div>
           <h3>En la internación</h3>
-          <p>Hospitales, clínicas, sanatorios y geriátricos que llevan el control diario de los pacientes<span class="no-mob"> que se movilizan por sus propios medios</span>.</p>
+          <p>Para acompañar el registro de volumen en personas que pueden utilizar el inodoro, de acuerdo con las indicaciones y los protocolos de cada servicio.</p>
         </div>
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
           <h3>En casa</h3>
-          <p><span class="no-mob">Seguimientos que duran semanas o meses. </span>El paciente anota sus propios valores en el baño de su casa y llega a la consulta con el registro hecho.</p>
+          <p>Para quienes necesitan llevar un registro indicado por su profesional de salud, por sus propios medios o con ayuda de un cuidador.</p>
         </div>
         <div class="who__item rv">
           <div class="who__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 15h9"/></svg></div>
-          <h3>Para el laboratorio</h3>
-          <p>La recolección se vuelve más higiénica: Utilizando la ranura vertedora se almacena sin derrames incomodos<span class="no-mob">, ni contacto directo en ningún caso</span>.</p>
+          <h3>Para facilitar el trasvase</h3>
+          <p>La ranura vertedora ayuda a dirigir el líquido al vaciarlo. Para muestras de laboratorio, consultá antes si este método es adecuado para el estudio solicitado.</p>
         </div>
       </div>
     </div>
@@ -533,7 +520,7 @@ textarea{resize:vertical;min-height:96px}
       <div class="sec-head">
         <span class="eyebrow">El producto</span>
         <h2>Por qué elegir URIPEL</h2>
-        <p class="lede">Una pieza única de ABS, sin partes móviles ni consumibles: se coloca, se retira, se vuelca y se lava.</p>
+        <p class="lede">Una pieza de ABS con escala graduada y ranura vertedora. Cada detalle está pensado para simplificar la recolección, la lectura y el vaciado.</p>
       </div>
 
       <div class="benefits">
@@ -555,25 +542,36 @@ textarea{resize:vertical;min-height:96px}
           <img src="img/benefit-3.webp" width="760" height="760" alt="Lavado del recolector URIPEL bajo el chorro de agua de una pileta." loading="lazy" decoding="async">
           <div class="bcard__body">
             <h3>Reutilizable</h3>
-            <p>Se lava con agua y jabón como cualquier utensilio y vuelve a usarse.<span class="no-mob"> Menos residuos y menos costo por estudio frente al descartable.</span></p>
+            <p>Su diseño permite volver a utilizarlo siguiendo las instrucciones de limpieza del producto.<span class="no-mob"> En instituciones de salud, el uso y la limpieza deben ajustarse al protocolo del servicio.</span></p>
           </div>
         </article>
       </div>
 
       <ul class="mini">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Diseño universal.</b> Se adapta a inodoros estándar y es apto para adultos y niños.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Apoyo sobre el inodoro.</b> Verificá la compatibilidad y la estabilidad antes del uso.</span></li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Sin insumos adicionales.</b> No requiere bolsas ni accesorios para funcionar.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Permite volcar la muestra al frasco sin derrames ni contacto.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ranura vertedora.</b> Ayuda a dirigir el líquido y facilita el vaciado del recipiente.</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="preguntas">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Antes de elegir</span><h2>Lo que necesitás saber</h2><p class="lede">Respuestas breves para elegir URIPEL y usarlo según tus necesidades.</p></div>
+      <div class="faq">
+        <details><summary>¿Cómo se cuida para volver a usarlo?</summary><p>Su diseño reutilizable permite incorporarlo a la rutina de cuidado. Después de cada uso, seguí las instrucciones de limpieza del producto para dejarlo listo para la próxima vez. En instituciones de salud, seguí el protocolo de limpieza y reutilización del servicio.</p></details>
+        <details><summary>¿Cómo se coloca en el inodoro?</summary><p>URIPEL está diseñado para apoyarse sobre inodoros estándar, debajo de la tabla. Colocalo de manera que quede bien apoyado y estable para usarlo con comodidad. Podemos ayudarte a verificar la compatibilidad con tu inodoro antes de comprar.</p></details>
+        <details><summary>¿En qué estudios y controles puede ayudar?</summary><p>URIPEL facilita el control del volumen de orina y el registro de frecuencia y cantidad en diarios miccionales. También puede facilitar la recolección y el trasvase en estudios de orina de 24 horas, entre otros usos, cuando el laboratorio o el médico acepta este método. Como es un producto no estéril, consultá antes de recolectar para confirmar que el método sea adecuado para el estudio solicitado.</p></details>
+      </div>
     </div>
   </section>
 
   <!-- ===== CTA ===== -->
   <section class="sec cta" id="contacto">
     <div class="wrap">
-      <h2>Hablemos de tu caso</h2>
-      <p>Contanos si es para una institución de salud, para el control de alguien en casa o para un laboratorio, y te respondemos con lo que necesites.</p>
-      <a class="btn btn--light" href="contacto.html" data-modal>Solicitar información</a>
+      <h2>Sumá URIPEL a tu rutina de cuidado</h2>
+      <p>¿Lo necesitás para tu casa o para una institución? Consultanos por unidades, compras por cantidad y distribución.</p>
+      <a class="btn btn--light" href="contacto.html" data-modal>Consultar precio y disponibilidad</a>
     </div>
   </section>
 </main>
@@ -583,11 +581,12 @@ textarea{resize:vertical;min-height:96px}
     <div class="ft__top">
       <div>
         <img src="img/logo-white.webp" width="573" height="110" alt="URIPEL">
-        <p>Recipiente que se apoya en el inodoro para recolectar y medir orina o materia fecal, en el hospital y en casa.</p>
+        <p>Recolector y medidor de volumen de orina para facilitar el cuidado diario en casa y en instituciones de salud.</p>
       </div>
       <div class="ft__links">
         <a href="contacto.html" data-modal>Formulario de contacto</a>
         <a href="#modo-de-uso">Modo de uso</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
         <a class="ft__fb" href="https://www.facebook.com/profile.php?id=61595004490372" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21h3z"/></svg><span>Facebook</span></a>
       </div>
     </div>
@@ -601,7 +600,7 @@ textarea{resize:vertical;min-height:96px}
 <dialog id="modal" aria-labelledby="modalTitle">
   <div class="modal__hd">
     <div>
-      <h2 id="modalTitle">Solicitar información</h2>
+      <h2 id="modalTitle">Consultar precio y disponibilidad</h2>
       <p>Completá el formulario y te respondemos por mail a la brevedad.</p>
     </div>
     <button class="x" type="button" id="modalX" aria-label="Cerrar">
@@ -636,6 +635,7 @@ textarea{resize:vertical;min-height:96px}
       <select id="c-motivo" name="Motivo">
         <option>Compra para una institución de salud</option>
         <option>Uso domiciliario / particular</option>
+        <option>Distribución / reventa</option>
         <option>Información técnica</option>
         <option>Otro</option>
       </select>
@@ -655,16 +655,15 @@ textarea{resize:vertical;min-height:96px}
   "@context":"https://schema.org",
   "@type":"Product",
   "name":"URIPEL",
-  "category":"Recolector y medidor de orina y materia fecal",
-  "description":"Recipiente recolector de orina y materia fecal que se adapta a inodoros estándar. Escala graduada en mililitros y onzas para medir el volumen de cada micción, y ranura vertedora para pasar la muestra al frasco. Uso hospitalario y domiciliario.",
+  "category":"Recolector y medidor de volumen de orina",
+  "description":"Recipiente para recolectar y medir el volumen de orina, con escala graduada y ranura vertedora. Para el cuidado diario en casa y en instituciones de salud. Producto no estéril ni esterilizable; no apto para urocultivos.",
   "image":"https://www.uripel.com/img/og-image.jpg",
   "url":"https://www.uripel.com/",
   "material":"ABS",
   "brand":{"@type":"Brand","name":"URIPEL"},
   "additionalProperty":[
-    {"@type":"PropertyValue","name":"Medidas","value":"35 cm x 21,5 cm x 9,5 cm"},
     {"@type":"PropertyValue","name":"Esterilidad","value":"Producto no estéril"},
-    {"@type":"PropertyValue","name":"Reutilizable","value":"Sí, lavado con agua y jabón"}
+    {"@type":"PropertyValue","name":"Reutilizable","value":"Según instrucciones de limpieza del producto"}
   ]
 }
 </script>
